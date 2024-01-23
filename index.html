@@ -6,18 +6,24 @@
     <title>Login</title>
 </head>
 <body>
-    <main>
-
     <header>
         <h1>Welcome to Scrum</h1>
-        <h2>Login</h2>
-        username: <input type="text" id="login" placeholder="username" required>
-        password: <input type="password" id="password" placeholder="password" required>
-        <button id="loginButton">Login</button>
-        <p id="warningMessage" style="color: red;"></p>
     </header>
-    <link  type="text/css" rel="stylesheet" href="main.css">
+    <aside>
+        <div class="logo">
+            <img src="logo_scrum.png" alt="Logo" height="150">
+        </div>
+    </aside>
+       <div class="center-container">
+        <div class="loginpanel">
+            <h2>Login</h2>
+            username: <input type="text" id="login" placeholder="username" required>
+            password: <input type="password" id="password" placeholder="password" required>
+            <button id="loginButton">Login</button>
+        </div>
+        <p id="warningMessage" style="color: red;"></p>
+       </div>
     <script src="app.js"></script>
-</main>
+    <link  type="text/css" rel="stylesheet" href="main.css">
 </body>
 </html>
