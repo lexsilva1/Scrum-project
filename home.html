@@ -9,27 +9,34 @@
 <body>
     <header>
         <h1>Welcome to Scrum</h1>
+        <div class="username">
+            <input type="text" placeholder="Username">
+        </div>
     </header>
-
+    <div class="container clearfix">
     <aside>
+        <div class="logo">
+            <img src="logo_scrum.png" alt="Logo" height="150">
+        </div>
         <h3>Add task</h3>
-        <input type="text" id="taskName" placeholder="Task name">
-        <input type="text" id="taskDescription" placeholder="Task description">
-        <button id="addTask">Add</button>
+        <input type="text" id="taskName" placeholder="Título">
+        <input type="text" id="taskDescription" placeholder="Descrição">
+        <button id="addTask">Adicionar</button>
     </aside>
 
     <main>
         <div class="panel" id="panel1">
-            <h2>Panel 1</h2>
+            <h2>To do</h2>
+            
         </div>
         <div class="panel" id="panel2">
-            <h2>Panel 2</h2>
+            <h2>Doing</h2>
         </div>
         <div class="panel" id="panel3">
-            <h2>Panel 3</h2>
+            <h2>Done</h2>
         </div>
     </main>
-
+    </div>
     <footer>
         <h3>Footer</h3>
     </footer>
