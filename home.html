@@ -9,10 +9,11 @@
 <body>
     <header>
         <h1>Welcome to Scrum</h1>
-        <a href="index.html" class="logout-link">Logout</a>
         <div class="username">
+            <label>Olá </label>
             <label id="login" type="text" >
         </div>
+        <a href="index.html" class="logout-link">Logout</a>
     </header>
     <div class="container clearfix">
     <aside>
@@ -26,16 +27,38 @@
     </aside>
 
     <main>
-        <div class="panel" id="panel1">
+        <div class="titulo-main">
             <h2>To do</h2>
-            
+            <div class="panel" id="panel1">
+
+            </div>
         </div>
-        <div class="panel" id="panel2">
+            <div class="titulo-main">
             <h2>Doing</h2>
+            <div class="panel" id="panel2">
+                
         </div>
-        <div class="panel" id="panel3">
+        </div>
+            <div class="titulo-main">
             <h2>Done</h2>
+            <div class="panel" id="panel3">
+                <div class="task" id="task1" draggable="true">
+                    <div class="post-it">
+                        <h3>Task 1</h3>
+                        <img src="red_cross.png" class="apagarButton" id="apagarButton1">
+                    </div>
+                </div>
+                <div class="task" id="task2">
+                    <h3>Task 2</h3>
+                    <img src="red_cross.png" class="apagarButton"  id="apagarButton2">
+                </div>
+                <div class="task" id="task3">
+                    <h3>Task 3</h3>
+                    <img src="red_cross.png" class="apagarButton"  id="apagarButton3">
+                </div>
         </div>
+    </div>
+
     </main>
     </div>
     <footer>
