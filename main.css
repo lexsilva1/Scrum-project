@@ -178,6 +178,7 @@ main {
     margin-bottom: 40px;
     background-color: #c8e4e7;
     border: 2px solid #223C4A;
+    overflow: auto;
 }
 #panel2 {
     background-color: #2ccbd37e;
