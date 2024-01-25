@@ -78,7 +78,7 @@ function createTaskElement(name, description) {
   taskTitle.textContent = name;
 
   const deleteButton = document.createElement('img');
-  deleteButton.src = 'red_cross.png';
+  deleteButton.src = "multimedia/red_cross.png";
   deleteButton.className = 'apagarButton';
   deleteButton.addEventListener('click', function () {
       taskElement.remove();
