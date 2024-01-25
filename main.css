@@ -8,6 +8,145 @@ body {
     background-color: #0E1A21;
 }
 
+/* video em background da página index (página inicial e de login) */
+.video-container {
+    z-index: 0;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+}
+/* overlay em verde #21979c para aproximar a cor do video com a palete de cores */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(33, 151, 156, 0.3);
+}
+
+/* Estilo do Welcome to Scrum */
+#welcomeText {
+    z-index: 1;
+    position: absolute;
+    top: calc(50% - 300px); /* Ajuste para 200px acima do centro vertical */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0; /* Inicia com tamanho zero para a animação */
+    font-family: 'Helvetica', sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    opacity: 0;
+    animation: fadeInAndScale 2s ease-in-out 1.5s forwards;
+}
+
+/* Animacao fade in que expande o texto Welcome to Scrum */
+@keyframes fadeInAndScale {
+    from {
+        opacity: 0;
+        font-size: 0;
+    }
+    to {
+        opacity: 1;
+        font-size: 3em;
+    }
+}
+
+/* definicoes do painel de login */
+.center-container {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    opacity: 0; /* Inicia com opacidade zero para a animação fadeIn */
+    animation: fadeIn 2s ease-in-out 3s forwards; /* Adiciona nova animação para fadeIn após 3 segundos */
+}
+
+.loginpanel {
+    z-index: 3;
+    padding: 20px;
+    font-size: 15px;
+    text-align: center;
+    color: #223C4A;
+    background-color: #c8e4e7b9;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    height: 360px;
+    width: 300px; /* Adjust the width as needed */
+    margin-top: 20px; /* Adjust as needed */
+}
+.loginpanel h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #21979c;
+}
+
+#login {
+margin-bottom: 15px;
+width: 200px;
+height: 25px;
+}
+
+#password {
+margin-bottom: 15px;
+width: 200px;
+height: 25px;
+}
+.loginpanel ::placeholder {
+    color: #21979c;
+}
+.loginpanel input[type="text"] {
+    color: #223C4A;
+}
+.loginpanel #loginButton {
+    text-align: center;
+    margin-top: 10px;
+    padding-left: 10px;
+    width: 100px;
+    height: 32px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #21979c;
+    color: #F4F5F7;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+.loginpanel #loginButton:hover {
+    background-color: #223C4A;
+    color: #F4F5F7;
+}
+#warningMessage {
+    color: #c8e4e7;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* Animacao fade in para o container de login */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 header {
     width: 100%;
@@ -27,15 +166,12 @@ h1 {
 .username {
     color: #f9f9f9;
 }
-#login {
-    color: #c8e4e7;
-    font-weight: bold;
-}
+
 .username input {
     padding: 5px;
     width: 150px;
 }
-/* Defina as cores padrão, de link visitado, hover e active */
+/* Definicoes do link de logout no header (default, ja visitado, ao passar o rato e clicado) */
 .logout-link {
     margin-right: 100px;
     color: #21979c; /* Cor padrão */
@@ -54,27 +190,13 @@ h1 {
 }
 
 
-
-
-footer {
-    width: 100%;
-    height: 100px;
-    color: white;
-    text-align: center;
-    line-height: 100px;
-    background-color: #0E1A21;
-}
-footer h3 {
-    margin: 0;
-    font-size: 20px;
-}
-
-
+/* Definicoes do container que inclui o aside e o main */
 .container {
     display: flex;
     justify-content: space-between;
 }
 
+/* Definicioes da barra lateral aside*/
 aside {
     max-width: 240px;
     height: 720px;
@@ -147,7 +269,7 @@ aside h3 {
     }
 
 
-
+/* Definicoes do painel main, onde estao as seccoes do Scrum (To do, Doing, Done)*/
 main {
     width: calc(100% - 200px);
     padding-left: 30px;
@@ -225,31 +347,24 @@ div.panel {
     text-align: left;
     color: #223C4A;
 }
-.center-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-.loginpanel {
-    padding: 20px;
-    font-size: 15px;
-    text-transform: uppercase;
+
+/* Definicoes do footer*/
+footer {
+    width: 100%;
+    height: 100px;
+    color: white;
     text-align: center;
-    color: #223C4A;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 300px; /* Adjust the width as needed */
-    margin-top: 20px; /* Adjust as needed */
+    line-height: 100px;
+    background-color: #0E1A21;
 }
-#login {
-margin-bottom: 10px;
-}
-#password {
-margin-bottom: 10px;
+footer h3 {
+    margin: 0;
+    font-size: 20px;
 }
 
+
+
+/* Definicoes gerais da pagina, para que possa ser adaptavel conforme a dimensao da janela */
 @media (max-width: 1024px) {
     body {
         background-color: #cccccc;

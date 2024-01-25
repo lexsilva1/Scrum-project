@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open home.html",
-            "file": "d:\\AoR\\38. Projeto 1_Alex_Castro\\Scrum-project\\home.html"
+            "name": "Open index.html",
+            "file": "d:\\AoR\\38. Projeto 1_Alex_Castro\\Scrum-project\\index.html"
         }
     ]
 }
