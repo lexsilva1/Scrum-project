@@ -61,8 +61,8 @@ document.getElementById('addTask').addEventListener('click', function() {
       attachDragAndDropListeners(task);
 
       // Clear input fields after adding task
-      document.getElementById('taskName').innerHTML = '';
-      document.getElementById('taskDescription').innerHTML = '';
+      document.getElementById('taskName').value = '';
+      document.getElementById('taskDescription').value = '';
   }
 });
 
