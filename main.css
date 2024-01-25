@@ -169,6 +169,7 @@ header {
 h1 {
     margin-left: 20px;
     font-size: 20px;
+    color: #c8e4e7;
 }
 .username {
     color: #2CCCD3;
@@ -179,9 +180,27 @@ h1 {
     width: 150px;
 }
 .username #login {
-    color: #f9f9f9;
+    color: #c8e4e7;
     font-weight: bold;
 }
+.logout-button {
+    margin-right: 100px;
+    background-color: #223C4A;
+    color: #c8e4e7;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+.logout-button img {
+    width: 18px;
+    height: 19px;
+    margin-right: 8px;
+}
+
 /* Definicoes do link de logout no header (default, ja visitado, ao passar o rato e clicado) */
 .logout-link {
     margin-right: 100px;
@@ -328,11 +347,11 @@ main {
 }
 
 .task {
-    background-image: url('multimedia/post-it.png');
+    background-image: url('multimedia/post-it-02.png');
     background-size: 100px;
     background-repeat: no-repeat;
     position: relative;
-    height: 125px;
+    height: 110px;
 }
 .task .dragging{
     opacity: 0.5;
@@ -341,13 +360,14 @@ main {
     text-align: left;
     font-size: 15px;
     text-transform: uppercase;
-    padding-left: 20px;
-    padding-top: 30px;
+    padding-left: 13px;
+    padding-top: 22px;
 }
 .apagarButton {
-    padding-left: 65px;
-    max-width: 20px;
-    max-height: 20px;
+    padding-left: 72px;
+    padding-top: 17px;
+    max-width: 14px;
+    max-height: 14px;
     cursor: pointer;
 }
 h2 {
@@ -358,7 +378,9 @@ h2 {
 
 }
 div.panel {
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
     font-size: 15px;
     text-align: left;
     color: #223C4A;
