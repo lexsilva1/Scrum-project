@@ -195,6 +195,9 @@ main {
     position: relative;
     height: 125px;
 }
+.task .dragging{
+    opacity: 0.5;
+}
 .task h3 {
     text-align: left;
     font-size: 15px;
