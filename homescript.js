@@ -7,7 +7,7 @@ window.onload = function () {
 const tasks = document.querySelectorAll('.task')
 const panels = document.querySelectorAll('.panel')
 
-function attachDragAndDropListeners(task) {
+function attachDragAndDropListeners(task) { // Adiciona os listeners de drag and drop a uma tarefa criada dinamicamente
   task.addEventListener('dragstart', () => {
       task.classList.add('dragging')
   });
@@ -16,16 +16,24 @@ function attachDragAndDropListeners(task) {
       task.classList.remove('dragging')
   });
 }
+// codigo para o drag and drop das tasks hardcoded. vai sair pro projecto final
 tasks.forEach(task => {
   task.addEventListener('dragstart', () => {
-    task.classList.add('dragging')
-  })
+    task.classList.add('dragging');
+  });
 
   task.addEventListener('dragend', () => {
-    task.classList.remove('dragging')
-  })
-}) 
-panels.forEach(panel => {
+    task.classList.remove('dragging');
+  });
+
+  const deleteButton = task.querySelector('.apagarButton');
+  deleteButton.addEventListener('click', function () {
+    task.remove();
+  });
+});
+
+
+panels.forEach(panel => { // Adiciona os listeners de drag and drop a um painel
   panel.addEventListener('dragover', e => {
     e.preventDefault()
     const afterElement = getDragAfterElement(panel, e.clientY)
@@ -38,17 +46,17 @@ panels.forEach(panel => {
   })
 })
 function getDragAfterElement(panel, y) {
-    const draggableElements = [...panel.querySelectorAll('.task:not(.dragging)')]
+    const draggableElements = [...panel.querySelectorAll('.task:not(.dragging)')] // dentro da lista de paineis, seleciona todos os elementos com a classe task que nao tenham a classe dragging  
 
-    return draggableElements.reduce((closest, child) => {
-        const box = child.getBoundingClientRect()
-        const offset = y - box.top - box.height / 2
-        if (offset < 0 && offset > closest.offset) {
+    return draggableElements.reduce((closest, child) => {// retorna o elemento mais proximo do elemento que esta a ser arrastado e
+        const box = child.getBoundingClientRect() // retorna o tamanho do elemento e a sua posicao relativa ao viewport
+        const offset = y - box.top - box.height / 2// calcula a distancia entre o elemento que esta a ser arrastado e o elemento que esta a ser comparado
+        if (offset < 0 && offset > closest.offset) {// se a distancia for menor que 0 e maior que a distancia do elemento mais proximo ate agora
             return { offset: offset, element: child }
-        } else {
-            return closest
+        } else { //
+            return closest // retorna o elemento mais proximo ate agora
         }
-    }, { offset: Number.NEGATIVE_INFINITY }).element}
+    }, { offset: Number.NEGATIVE_INFINITY }).element} /
 
 document.getElementById('addTask').addEventListener('click', function() {
   var Description = taskDescription.value.trim();
@@ -68,8 +76,12 @@ document.getElementById('addTask').addEventListener('click', function() {
 
 function createTaskElement(name, description) {
   const taskElement = document.createElement('div');
+  const taskId = 'task-' + Date.now(); // Gera Id especifico da tarefa.
+  taskElement.id = taskId; // Define o Id da tarefa.
   taskElement.className = 'task';
   taskElement.draggable = true;
+  taskElement.description = description; // Guarda a descrição da tarefa no elemento.
+  taskElement.title = name; // Guarda o nome da tarefa no elemento.
 
   const postIt = document.createElement('div');
   postIt.className = 'post-it';
@@ -78,10 +90,10 @@ function createTaskElement(name, description) {
   taskTitle.textContent = name;
 
   const deleteButton = document.createElement('img');
-  deleteButton.src = 'red_cross.png';
+  deleteButton.src = 'multimedia/red_cross.png';
   deleteButton.className = 'apagarButton';
   deleteButton.addEventListener('click', function () {
-      taskElement.remove();
+    taskElement.remove();
   });
 
   postIt.appendChild(taskTitle);
