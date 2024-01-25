@@ -312,7 +312,7 @@ main {
 }
 
 .task {
-    background-image: url('post-it.png');
+    background-image: url('multimedia/post-it.png');
     background-size: 100px;
     background-repeat: no-repeat;
     position: relative;
