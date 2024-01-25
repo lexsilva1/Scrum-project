@@ -56,7 +56,7 @@ function getDragAfterElement(panel, y) {
         } else { //
             return closest // retorna o elemento mais proximo ate agora
         }
-    }, { offset: Number.NEGATIVE_INFINITY }).element} /
+    }, { offset: Number.NEGATIVE_INFINITY }).element} 
 
 document.getElementById('addTask').addEventListener('click', function() {
   var Description = taskDescription.value.trim();
