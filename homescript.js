@@ -33,6 +33,7 @@ tasks.forEach(task => {
 });
 
 
+
 panels.forEach(panel => { // Adiciona os listeners de drag and drop a um painel
   panel.addEventListener('dragover', e => {
     e.preventDefault()
