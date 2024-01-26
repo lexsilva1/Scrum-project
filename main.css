@@ -34,7 +34,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(34, 60, 74, 0.3);
+    background: #21979c48;
 }
 
 /* Estilo do Welcome to Scrum */
@@ -336,6 +336,9 @@ main {
     background-color: #c8e4e7;
     border: 2px solid #223C4A;
     overflow: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: #21979c #f9f9f9;
 }
 #panel2 {
     background-color: #2ccbd37e;
@@ -345,13 +348,32 @@ main {
     background-color: #21989c7e;
     border: 2px solid #223C4A;
 }
+/* Estilos para navegadores WebKit (Chrome, Safari) */
+.panel::-webkit-scrollbar {
+    width: 13px; /* largura da barra de rolagem */
+}
+
+.panel::-webkit-scrollbar-thumb {
+    background-color: #21979c; /* cor do indicador de rolagem */
+    border-top-right-radius: 8px;
+}
+
+.panel::-webkit-scrollbar-track {
+    background-color: #f9f9f9; /* cor da trilha da rolagem */
+    margin-right: 1px; /* afasta a barra de rolagem do lado direito em 1px */
+    border-top-right-radius: 9px;
+}
+.panel::-webkit-scrollbar {
+    height: calc(100% - 2px); /* altura da barra de rolagem */
+    padding-right: 1px;
+}
 
 .task {
-    background-image: url('multimedia/post-it-02.png');
+    background-image: url('multimedia/post-it-03.png');
     background-size: 100px;
     background-repeat: no-repeat;
     position: relative;
-    height: 110px;
+    height: 115px;
 }
 .task .dragging{
     opacity: 0.5;
@@ -361,13 +383,13 @@ main {
     font-size: 15px;
     text-transform: uppercase;
     padding-left: 13px;
-    padding-top: 22px;
+    padding-top: 15px;
 }
 .apagarButton {
-    padding-left: 72px;
-    padding-top: 17px;
-    max-width: 14px;
-    max-height: 14px;
+    padding-left: 75px;
+    padding-top: 19px;
+    max-width: 12px;
+    max-height: 12px;
     cursor: pointer;
 }
 h2 {
@@ -389,16 +411,29 @@ div.panel {
 /* Definicoes do footer*/
 footer {
     width: 100%;
-    height: 100px;
+    padding: 20px 0;
+    background-color: #0E1A21;
     color: #c8e4e7;
     text-align: center;
-    line-height: 100px;
-    background-color: #0E1A21;
 }
 
-footer h4 {
-    margin: 0 0 10px 0;
+.footer-content {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 120px; /* Espaçamento entre as labels, ajuste conforme necessário */
+    row-gap: 15px; /* Espaçamento entre as linhas, ajuste conforme necessário */
 }
+.label-left {
+    font-size: 14px;
+    text-align: right;
+}
+.label-right {
+    font-size: 14px;
+    text-align: left;
+}
+
+
 
 
 
