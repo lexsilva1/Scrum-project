@@ -34,7 +34,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(34, 60, 74, 0.3);
+    background: #21979c48;
 }
 
 /* Estilo do Welcome to Scrum */
@@ -169,6 +169,7 @@ header {
 h1 {
     margin-left: 20px;
     font-size: 20px;
+    color: #c8e4e7;
 }
 .username {
     color: #2CCCD3;
@@ -179,9 +180,27 @@ h1 {
     width: 150px;
 }
 .username #login {
-    color: #f9f9f9;
+    color: #c8e4e7;
     font-weight: bold;
 }
+.logout-button {
+    margin-right: 100px;
+    background-color: #223C4A;
+    color: #c8e4e7;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+.logout-button img {
+    width: 18px;
+    height: 19px;
+    margin-right: 8px;
+}
+
 /* Definicoes do link de logout no header (default, ja visitado, ao passar o rato e clicado) */
 .logout-link {
     margin-right: 100px;
@@ -317,6 +336,9 @@ main {
     background-color: #c8e4e7;
     border: 2px solid #223C4A;
     overflow: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: #21979c #f9f9f9;
 }
 #panel2 {
     background-color: #2ccbd37e;
@@ -326,13 +348,32 @@ main {
     background-color: #21989c7e;
     border: 2px solid #223C4A;
 }
+/* Estilos para navegadores WebKit (Chrome, Safari) */
+.panel::-webkit-scrollbar {
+    width: 13px; /* largura da barra de rolagem */
+}
+
+.panel::-webkit-scrollbar-thumb {
+    background-color: #21979c; /* cor do indicador de rolagem */
+    border-top-right-radius: 8px;
+}
+
+.panel::-webkit-scrollbar-track {
+    background-color: #f9f9f9; /* cor da trilha da rolagem */
+    margin-right: 1px; /* afasta a barra de rolagem do lado direito em 1px */
+    border-top-right-radius: 9px;
+}
+.panel::-webkit-scrollbar {
+    height: calc(100% - 2px); /* altura da barra de rolagem */
+    padding-right: 1px;
+}
 
 .task {
-    background-image: url('multimedia/post-it.png');
+    background-image: url('multimedia/post-it-03.png');
     background-size: 100px;
     background-repeat: no-repeat;
     position: relative;
-    height: 125px;
+    height: 115px;
 }
 .task .dragging{
     opacity: 0.5;
@@ -341,13 +382,14 @@ main {
     text-align: left;
     font-size: 15px;
     text-transform: uppercase;
-    padding-left: 20px;
-    padding-top: 30px;
+    padding-left: 13px;
+    padding-top: 15px;
 }
 .apagarButton {
-    padding-left: 65px;
-    max-width: 20px;
-    max-height: 20px;
+    padding-left: 75px;
+    padding-top: 19px;
+    max-width: 12px;
+    max-height: 12px;
     cursor: pointer;
 }
 h2 {
@@ -358,7 +400,9 @@ h2 {
 
 }
 div.panel {
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
     font-size: 15px;
     text-align: left;
     color: #223C4A;
@@ -367,16 +411,29 @@ div.panel {
 /* Definicoes do footer*/
 footer {
     width: 100%;
-    height: 100px;
+    padding: 20px 0;
+    background-color: #0E1A21;
     color: #c8e4e7;
     text-align: center;
-    line-height: 100px;
-    background-color: #0E1A21;
 }
 
-footer h4 {
-    margin: 0 0 10px 0;
+.footer-content {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 120px; /* Espaçamento entre as labels, ajuste conforme necessário */
+    row-gap: 15px; /* Espaçamento entre as linhas, ajuste conforme necessário */
 }
+.label-left {
+    font-size: 14px;
+    text-align: right;
+}
+.label-right {
+    font-size: 14px;
+    text-align: left;
+}
+
+
 
 
 
