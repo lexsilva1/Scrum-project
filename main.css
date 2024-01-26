@@ -49,7 +49,7 @@ body {
     text-transform: uppercase;
     color: #fff;
     opacity: 0;
-    animation: fadeInAndScale 2s ease-in-out 1.5s forwards;
+    animation: fadeInAndScale 1s ease-in-out 0.3s forwards;
 }
 
 /* Animacao fade in que expande o texto Welcome to Scrum */
@@ -73,7 +73,7 @@ body {
     justify-content: center;
     height: 100vh;
     opacity: 0; /* Inicia com opacidade zero para a animação fadeIn */
-    animation: fadeIn 2s ease-in-out 3s forwards; /* Adiciona nova animação para fadeIn após 3 segundos */
+    animation: fadeIn 1s ease-in-out 1.1s forwards; /* Adiciona nova animação para fadeIn após 3 segundos */
 }
 
 .loginpanel {
@@ -312,7 +312,7 @@ main {
     height: 720px;
     background-color: #f9f9f9;
     display: flex;
-    justify-content: space-between; /* Add this to create space between panels */
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 .titulo-main {
@@ -325,7 +325,8 @@ main {
     padding-bottom: 10px;
 }
 .panel {
-    flex: 1;
+    flex: 0 0 190px;
+    min-width: 190px;
     height: 500px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -419,25 +420,20 @@ footer {
 
 .footer-content {
     padding-top: 20px;
+    font-size: 17px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 120px; /* Espaçamento entre as labels, ajuste conforme necessário */
     row-gap: 15px; /* Espaçamento entre as linhas, ajuste conforme necessário */
 }
 .label-left {
-    font-size: 14px;
     text-align: right;
 }
 .label-right {
-    font-size: 14px;
     text-align: left;
 }
 
-
-
-
-
-/* Definicoes gerais da pagina, para que possa ser adaptavel conforme a dimensao da janela */
+/* Divisoes da pagina home e task */
 @media (max-width: 1024px) {
     body {
         background-color: #cccccc;
