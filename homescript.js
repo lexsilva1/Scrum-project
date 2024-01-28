@@ -40,13 +40,13 @@ panels.forEach(panel => { // Adiciona os listeners de drag and drop a um painel
     e.preventDefault()
     const afterElement = getDragAfterElement(panel, e.clientY)
     const task = document.querySelector('.dragging')
-    const panelID = document.getElementById(panel.id)
+    const panelID = document.getElementById(panel.id) // guarda o id do painel onde a tarefa vai ser colocada
     if (afterElement == null) {
       panel.appendChild(task)
       task.status = panel.id;
-      for (var i = 0; i < tasks.length; i++) {
+      for (var i = 0; i < tasks.length; i++) { // percorre o array de tarefas e altera o status da tarefa para o painel onde foi colocada
         if (tasks[i].id == task.id) {
-          tasks[i].status = panelID;
+          tasks[i].status = panelID; // actualiza o status da tarefa
         }
       }
       saveTasks();
@@ -58,7 +58,7 @@ panels.forEach(panel => { // Adiciona os listeners de drag and drop a um painel
           tasks[i].status = panelID;
         }
       }
-      saveTasks();
+      saveTasks(); // guarda as alteracoes no local storage
     }
   })
 })
@@ -103,7 +103,7 @@ function createTask(name, description) {  // Cria uma tarefa com o nome e descri
   return task;
 }
 
-function createTaskElement(task) {
+function createTaskElement(task) { // Cria um elemento tarefa com a informação passada como argumento
   const taskElement = document.createElement('div');
   taskElement.id = task.identificacao; // Define o Id da tarefa.
   taskElement.className = 'task';
@@ -132,39 +132,39 @@ function createTaskElement(task) {
   return taskElement;
 }
 function saveTasks() {
-  const tasks = document.querySelectorAll('.task');
-  const tasksArray = [];
-  tasks.forEach(task => {
-      tasksArray.push({
+  const tasks = document.querySelectorAll('.task'); // lista de tarefas
+  const tasksArray = []; // array que vai guardar a informacao de cada tarefa
+  tasks.forEach(task => { // percorre a lista de tarefas e guarda a informacao de cada tarefa num array
+      tasksArray.push({ // guarda a informacao de cada tarefa num objecto
           identificacao: task.id,
           title: task.title,
           description: task.description,
           status: task.status
       });
   });
-  localStorage.setItem('tasks', JSON.stringify(tasksArray));
+  localStorage.setItem('tasks', JSON.stringify(tasksArray)); // guarda o array de tarefas no local storage
 }
-function loadTasks() {
+function loadTasks() { // carrega as tarefas guardadas no local storage
   const tasks = JSON.parse(localStorage.getItem('tasks'));
   tasks.forEach(task => {
     const taskElement = createTaskElement(task);
-    const panel = document.getElementById(task.status);
-    panel.appendChild(taskElement);
-    attachDragAndDropListeners(taskElement);
+    const panel = document.getElementById(task.status); // guarda o painel onde a tarefa vai ser colocada
+    panel.appendChild(taskElement); // adiciona a tarefa ao painel
+    attachDragAndDropListeners(taskElement); // adiciona os listeners de drag and drop a tarefa
   });
 }
 function deleteTask(id) {
   var task = document.getElementById(id);
   task.remove();
 const tasks = JSON.parse(localStorage.getItem('tasks'));
-for (var i = 0; i < tasks.length; i++) {
-  if (tasks[i].id == id) {
-    removeItemFromArr(tasks, tasks[i]);
+for (var i = 0; i < tasks.length; i++) { // percorre o array de tarefas
+  if (tasks[i].id == id) { // se a tarefa tiver o mesmo id que a tarefa passada como argumento
+    removeItemFromArr(tasks, tasks[i]); // remove a tarefa do array de tarefas
   }
   saveTasks();
 }
 }
-window.onclose = function () { 
+window.onclose = function () { // guarda as tarefas no local storage quando a pagina e fechada
   saveTasks();
 }
 
