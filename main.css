@@ -317,16 +317,17 @@ main {
 }
 .titulo-main {
     flex: 1;
+}
+.main-home {
     text-align: center;
     color: #223C4A;
     text-transform: uppercase;
     font-size: 20px;
-    padding-top: 60px;
+    padding-top: 40px;
     padding-bottom: 10px;
 }
 .panel {
-    flex: 0 0 190px;
-    min-width: 190px;
+    flex: 1;
     height: 500px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -341,6 +342,7 @@ main {
     scrollbar-width: thin;
     scrollbar-color: #21979c #f9f9f9;
 }
+
 #panel2 {
     background-color: #2ccbd37e;
     border: 2px solid #223C4A;
@@ -408,6 +410,94 @@ div.panel {
     text-align: left;
     color: #223C4A;
 }
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .panel {
+        flex: none;
+        width: calc(100% - 100px);
+        margin: 20px auto;
+    }
+}
+
+.main-task {
+    width: auto;
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.detalhes-task {
+    margin-top: 50px;
+    margin-right: 20px;
+}
+
+.main-task #titulo-task {
+    margin-bottom: 20px;
+    margin-left: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+    color: #223C4A;
+}
+
+.main-task #descricao-task {
+    margin-left: 100px;
+    resize: none;
+    width: 500px;
+    height: 400px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+.task-buttons {
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaçamento entre as colunas */
+}
+.task-buttons #taskH4 {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    padding-top: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 20px;
+
+}
+
+.task-status .status-buttons,
+.task-priority .priority-buttons {
+    display: flex;
+    gap: 30px; /* Espaçamento entre os botões */
+}
+
+.status-button,
+.priority-button {
+    width: 100px;
+    height: 45px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    font-weight:bold;
+    cursor: pointer;
+    background-color: #2CCCD3; /* Cor padrão para botões não selecionados */
+    color: #fff; /* Cor do texto para botões não selecionados */
+
+}
+
+.status-button.selected,
+.priority-button.selected {
+    background-color: #21979c;
+    color: #fff;
+}
+
 
 /* Definicoes do footer*/
 footer {

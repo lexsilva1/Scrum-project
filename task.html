@@ -19,74 +19,33 @@
             Logout
         </button>
     </header>
-    <div class="container clearfix">
-    <aside>
-        <div class="logo">
-            <img src="multimedia/logo_scrum_01.png" alt="Logo" height="150">
+
+
+    <main class="main-task">
+        <div class="detalhes-task">
+            <h3 id="titulo-task">Task 1</h3> <!-- Alterar este título para o título da tarefa que foi aberta (igual ao titulo da pagina - ver linha 6 deste html)-->
+            <textarea id="descricao-task" placeholder="Description"></textarea> <!-- Eliminar o placeholder e colocar dentro da descricao aquela que existe na tarefa que foi aberta -->
         </div>
-        <h3>Add task</h3>
-        <input type="text" id="taskName" placeholder="Título">
-        <textarea type="text" id="taskDescription" placeholder="Descrição"></textarea>
-        <button id="addTask">Adicionar</button>
-    </aside>
-
-    <main>
-        <div class="titulo-main">
-            <h2>To do</h2>
-            <div class="panel" id="panel1">
-
+        <div class="task-buttons">
+            <div class="task-status">
+                <h4 id="taskH4">status</h4>
+                <div class="status-buttons">
+                    <button class="status-button" id="todo-button">To do</button>
+                    <button class="status-button" id="doing-button">Doing</button>
+                    <button class="status-button" id="done-button">Done</button>
+                </div>
             </div>
-        </div>
-            <div class="titulo-main">
-            <h2>Doing</h2>
-            <div class="panel" id="panel2">
-                
-        </div>
-        </div>
-            <div class="titulo-main">
-            <h2>Done</h2>
-            <div class="panel" id="panel3">
-                <div class="task" id="task1" draggable="true">
-                    <div class="post-it">
-                        <h3>Task 1</h3>
-                        <img src="multimedia/green_cross.png" class="apagarButton" id="apagarButton1">
-                    </div>
-                </div>
-                <div class="task" id="task2" draggable="true">
-                    <div class="post-it">
-                        <h3>Task 2</h3>
-                        <img src="multimedia/green_cross.png" class="apagarButton"  id="apagarButton2">
-                    </div>
-                </div>
-                <div class="task" id="task3" draggable="true">
-                    <div class="post-it">
-                        <h3>Task 3</h3>
-                        <img src="multimedia/green_cross.png" class="apagarButton"  id="apagarButton3">
-                    </div>
-                </div>
-                <div class="task" id="task4" draggable="true">
-                    <div class="post-it">
-                        <h3>Task 4</h3>
-                        <img src="multimedia/green_cross.png" class="apagarButton" id="apagarButton1">
-                    </div>
-                </div>
-                <div class="task" id="task5" draggable="true">
-                    <div class="post-it">
-                        <h3>Task 5</h3>
-                        <img src="multimedia/green_cross.png" class="apagarButton"  id="apagarButton2">
-                    </div>
-                </div>
-                <div class="task" id="task6" draggable="true">
-                    <div class="post-it">
-                        <h3>Task 6</h3>
-                        <img src="multimedia/green_cross.png" class="apagarButton"  id="apagarButton3">
-                    </div>
+        
+            <div class="task-priority">
+                <h4 id="taskH4">priority</h4>
+                <div class="priority-buttons">
+                    <button class="priority-button" id="low-button">Low</button>
+                    <button class="priority-button" id="medium-button">Medium</button>
+                    <button class="priority-button" id="high-button">High</button>
                 </div>
             </div>
         </div>
-
     </main>
-    </div>
     <footer>
         <div class="footer-content">
             <div class="label-left">&copy; José Alexandre Silva</div>
@@ -95,6 +54,6 @@
             <div class="label-right">Projeto 1</div>
         </div>
     </footer>
-    <script src="homescript.js" defer></script>
+    <script src="task.js" defer></script>
 </body>
 </html>
