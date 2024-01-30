@@ -389,8 +389,8 @@ main {
     padding-top: 15px;
 }
 .apagarButton {
-    padding-left: 75px;
-    padding-top: 19px;
+    margin-left: 75px;
+    margin-top: 19px;
     max-width: 12px;
     max-height: 12px;
     cursor: pointer;
@@ -439,15 +439,9 @@ div.panel {
     text-align: center;
 }
 
-.main-task #logo-task {
-    margin-bottom: 10px;
-    margin-left: 100px;
-    max-height: 150px;
-    width: auto;
-}
 
 .main-task #titulo-task {
-    margin-top: 20px;
+    margin-top: 50px;
     margin-bottom: 20px;
     width: 520px;
     height: 30px;
@@ -487,8 +481,16 @@ div.panel {
 .main-task ::placeholder {
     color: #223C4A;
 }
+
+.main-task #logo-task {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    max-height: 150px;
+    width: auto;
+}
 .task-status {
-    margin-top: 130px;
+    margin-top: 140px;
 }
 .task-buttons {
     margin-left: 160px;
@@ -604,6 +606,50 @@ div.panel {
     transition: box-shadow 0.3s ease;
 }
 
+.task-save {
+    margin-top: 125px;
+    margin-left: 30px;
+    display: flex;
+    gap: 30px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#save-button {
+    width: 150px;
+    height: 45px;
+    background-color: #0E1A21;
+    color: #F4F5F7;
+    border-color: #0E1A21;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    font-weight:bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px #808080;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+#cancel-button {
+    width: 150px;
+    height: 45px;
+    background-color: #f6f8fa;
+    color: #0E1A21;
+    border-color: #f6f8fa;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    font-weight:bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px #808080;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
 
 
 /* Definicoes do footer*/
