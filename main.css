@@ -55,7 +55,7 @@ body {
     font-size: 15px;
     text-align: center;
     color: #223C4A;
-    background-color: #c8e4e7e7;
+    background-color: #c8e4e7ef;
     border-radius: 10px;
     height: 360px;
     width: 340px; /* Adjust the width as needed */
@@ -125,7 +125,7 @@ body {
 }
 
 header {
-    width: 100%;
+    width: auto;
     height: 80px;
     color: white;
     background-color: #223C4A;
@@ -347,6 +347,7 @@ main {
     position: relative;
     height: 115px;
 }
+
 .task .dragging{
     opacity: 0.5;
 }
@@ -398,8 +399,18 @@ div.panel {
     margin: auto;
     display: flex;
     justify-content: flex-start;
+    background-image: url('multimedia/background_main_task.png'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover; /* Ajusta o tamanho da imagem para cobrir toda a div */
+    background-position: center; /* Centraliza a imagem na div */
+    background-repeat: no-repeat; /* Evita a repetição da imagem */
 }
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .main-task {
+        flex-direction: column;
+    }
 
+}
 .detalhes-task {
     margin-top: 40px;
     margin-right: 100px;
@@ -421,7 +432,7 @@ div.panel {
     letter-spacing: 1.2px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
     background-color: #c8e4e7;
     color: #223C4A;
     border-top-right-radius: 10px;
@@ -446,7 +457,7 @@ div.panel {
     border-color: #223C4A;
     border-width: 2px;
 }
-.main-task ::placeholder { // placeholder do titulo e descricao para retirar
+.main-task ::placeholder { /* placeholder do titulo e descricao para retirar */
     color: #223C4A;
 }
 
@@ -583,9 +594,16 @@ div.panel {
     transition: box-shadow 0.3s ease;
 }
 
+.task-save-container {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 100%;
+}
 .task-save {
-    margin-top: 80px;
-    margin-left: 230px;
+    margin-top: 40px;
+    margin-bottom: 100px;
+    margin-right: 170px;
     display: flex;
     gap: 30px;
     text-transform: uppercase;
@@ -631,7 +649,7 @@ div.panel {
 
 /* Definicoes do footer*/
 footer {
-    width: 100%;
+    width: auto;
     padding: 20px 0;
     background-color: #0E1A21;
     color: #c8e4e7;
@@ -672,5 +690,24 @@ footer {
         width: 100%;
         margin: 0;
     }
+    @media (min-width: 768px) {
+        body {
+            background-color: #cccccc;
+        }
+    
+        header, footer {
+            width: 100%;
+        }
+    
+        aside {
+            width: 100%;
+            float: none;
+        }
+    
+        main {
+            width: 100%;
+            margin: 0;
+        }    
 }
 
+}
