@@ -4,7 +4,7 @@ window.onload = function () {
     var titulo = sessionStorage.getItem("taskTitle");
     if (username) {
       document.getElementById("login").textContent = username;
-      document.getElementById('titulo-task').innerHTML = titulo;
+      document.getElementById('titulo-task').textContent = titulo;
       document.getElementById('descricao-task').textContent=descricao;
     }
 };
@@ -30,18 +30,21 @@ todoButton.addEventListener("click", () => {
     todoButton.classList.add("selected");
     doingButton.classList.remove("selected");
     doneButton.classList.remove("selected");
+    sessionStorage.setItem("taskStatus", "panel1");
 });
 
 doingButton.addEventListener("click", () => {
     todoButton.classList.remove("selected");
     doingButton.classList.add("selected");
     doneButton.classList.remove("selected");
+    sessionStorage.setItem("taskStatus", "panel2");
 });
 
 doneButton.addEventListener("click", () => {
     todoButton.classList.remove("selected");
     doingButton.classList.remove("selected");
     doneButton.classList.add("selected");
+    sessionStorage.setItem("taskStatus", "panel3");
 });
 // Get the priority buttons
 const lowButton = document.getElementById("low-button");
@@ -69,4 +72,60 @@ highButton.addEventListener("click", () => {
     mediumButton.classList.remove("selected");
     highButton.classList.add("selected");
 });
+const cancelbutton = document.getElementById("cancel-button");
+cancelbutton.addEventListener("click", () => {
+    sessionStorage.removeItem("taskDescription");
+    sessionStorage.removeItem("taskTitle");
+    sessionStorage.removeItem("taskid");
+    sessionStorage.removeItem("taskStatus");
+    window.location.href = 'home.html';
+});
+const savebutton = document.getElementById("save-button");
+savebutton.addEventListener("click", () => {
+    var tasks = JSON.parse(localStorage.getItem("tasks"));
+    var taskid = sessionStorage.getItem("taskid");
+    var taskStatus = sessionStorage.getItem("taskStatus");
+    var taskDescription = document.getElementById("descricao-task").value.trim();
+    var taskTitle = document.getElementById("titulo-task").value.trim();
+    if(taskDescription == "" || taskTitle == ""){
+        alert("Por favor preencha todos os campos");
+        return;
+    }
+   
+    tasks[0].forEach(task => {
+        if(task.identificacao == taskid){
+            task.title = taskTitle;
+            task.description = taskDescription;
+            task.status = taskStatus;
+        }
+    });
+
+    tasks[1].forEach(task => {
+        if(task.identificacao == taskid){
+            task.title = taskTitle;
+            task.description = taskDescription;
+            task.status = taskStatus;
+        }
+    });
+
+    tasks[2].forEach(task => {
+        if(task.identificacao == taskid){
+            task.title = taskTitle;
+            task.description = taskDescription;
+            task.status = taskStatus;
+        }
+    });
+
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    sessionStorage.removeItem("taskDescription");
+    sessionStorage.removeItem("taskTitle");
+    sessionStorage.removeItem("taskid");
+    sessionStorage.removeItem("taskStatus");
+    window.location.href = 'home.html';
+});
+
+
+
+
 
