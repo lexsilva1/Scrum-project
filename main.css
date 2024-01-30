@@ -432,42 +432,79 @@ div.panel {
 }
 
 .detalhes-task {
-    margin-top: 50px;
-    margin-right: 20px;
+    margin-top: 40px;
+    margin-right: 100px;
+    margin-left: 100px;
+    align-items: center;
+    text-align: center;
+}
+
+.main-task #logo-task {
+    margin-bottom: 10px;
+    margin-left: 100px;
+    max-height: 150px;
+    width: auto;
 }
 
 .main-task #titulo-task {
+    margin-top: 20px;
     margin-bottom: 20px;
+    width: 520px;
+    height: 30px;
+    padding: 10px;
+    resize: none;
     margin-left: 100px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    background-color: #c8e4e7;
     color: #223C4A;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-color: #223C4A;
+    border-width: 2px;
 }
 
 .main-task #descricao-task {
     margin-left: 100px;
     resize: none;
     width: 500px;
-    height: 400px;
+    height: 260px;
+    padding: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
+    line-height: 1.4;
+    background-color: #c8e4e7;
+    color: #223C4A;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-color: #223C4A;
+    border-width: 2px;
+}
+.main-task ::placeholder {
+    color: #223C4A;
+}
+.task-status {
+    margin-top: 130px;
 }
 .task-buttons {
-    margin-left: 100px;
+    margin-left: 160px;
     display: flex;
     flex-direction: column;
     gap: 20px; /* Espaçamento entre as colunas */
 }
 .task-buttons #taskH4 {
     text-align: center;
-    margin-top: 100px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding-top: 30px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-size: 20px;
-
+    color: #223C4A;
 }
 
 .task-status .status-buttons,
@@ -487,16 +524,86 @@ div.panel {
     font-size: 16px;
     font-weight:bold;
     cursor: pointer;
-    background-color: #2CCCD3; /* Cor padrão para botões não selecionados */
-    color: #fff; /* Cor do texto para botões não selecionados */
+    box-shadow: 0px 4px 8px #808080;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+#todo-button {
+    background-color: #c8e4e7;
+    border-color: #0E1A21;
+    color: #223C4A;
+}
+#todo-button:hover {
+    background-color: #a6c9cc;
+    border-color: #0E1A21;
+    color: #223C4A;
+}
 
+#doing-button {
+    background-color: #2ccbd37e;
+    border-color: #0E1A21;
+    color: #223C4A;
+}
+#doing-button:hover {
+    background-color: #2ccbd3bb;
+    border-color: #0E1A21;
+    color: #223C4A;
+}
+
+#done-button {
+    background-color: #21989c7e;
+    border-color: #0E1A21;
+    color: #223C4A;
+}
+#done-button:hover {
+    background-color: #21989cbb;
+    border-color: #0E1A21;
+    color: #223C4A;
+}
+
+#low-button {
+    background-color: #4AFF74;
+    border-color: #0E1A21;
+    color: #223C4A;
+}
+#low-button:hover {
+    background-color: #3DCC5D;
+    border-color: #0E1A21;
+    color: #223C4A;
+}
+
+#medium-button {
+    background-color: #FFD54A;
+    border-color: #0E1A21;
+    color: #223C4A;
+}
+#medium-button:hover {
+    background-color: #D5B43D;
+    border-color: #0E1A21;
+    color: #223C4A;
+}
+
+#high-button {
+    background-color: #FF4A5A;
+    border-color: #0E1A21;
+    color: #223C4A;
+}
+#high-button:hover {
+    background-color: #CC3D4A;
+    border-color: #0E1A21;
+    color: #223C4A;
 }
 
 .status-button.selected,
 .priority-button.selected {
-    background-color: #21979c;
-    color: #fff;
+    background-color: #223C4A !important;
+    color: #2CCCD3 !important;
+    border-width: 2px !important;
+    border-color: #2CCCD3 !important;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
 }
+
 
 
 /* Definicoes do footer*/

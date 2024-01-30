@@ -23,8 +23,15 @@
 
     <main class="main-task">
         <div class="detalhes-task">
-            <h3 id="titulo-task">Task 1</h3> <!-- Alterar este título para o título da tarefa que foi aberta (igual ao titulo da pagina - ver linha 6 deste html)-->
-            <textarea id="descricao-task" placeholder="Description"></textarea> <!-- Eliminar o placeholder e colocar dentro da descricao aquela que existe na tarefa que foi aberta -->
+            <div>
+                <img src="multimedia/logo_scrum_01.png" alt="Logo" id="logo-task" height="150">
+            </div>
+            <div>
+                <textarea id="titulo-task">Task 1</textarea> <!-- Alterar este título para o título da tarefa que foi aberta (igual ao titulo da pagina - ver linha 6 deste html)-->
+            </div>
+            <div>
+                <textarea id="descricao-task" placeholder="Description"></textarea> <!-- Eliminar o placeholder e colocar dentro da descricao aquela que existe na tarefa que foi aberta -->
+            </div>
         </div>
         <div class="task-buttons">
             <div class="task-status">
@@ -43,6 +50,10 @@
                     <button class="priority-button" id="medium-button">Medium</button>
                     <button class="priority-button" id="high-button">High</button>
                 </div>
+            </div>
+            <div class="task-save">
+                <button class="save-button" id="save-button">Save</button>
+                <button class="cancel-button" id="cancel-button">Cancel</button>
             </div>
         </div>
     </main>
