@@ -128,38 +128,101 @@ function createTaskElement(task) { // Cria um elemento tarefa com a informação
   postIt.appendChild(taskTitle);
   postIt.appendChild(deleteButton);
   taskElement.appendChild(postIt);
+  taskElement.addEventListener('dblclick', function () {
+    sessionStorage.setItem("taskDescription", taskElement.description);
+    sessionStorage.setItem("taskTitle", taskElement.title);
+    sessionStorage.setItem("taskid", taskElement.id);
+    sessionStorage.setItem("taskStatus", taskElement.status);
+    window.location.href = 'task.html';
 
+  });
   return taskElement;
 }
 function saveTasks() {
-  const tasks = document.querySelectorAll('.task'); // lista de tarefas
-  const tasksArray = []; // array que vai guardar a informacao de cada tarefa
-  tasks.forEach(task => { // percorre a lista de tarefas e guarda a informacao de cada tarefa num array
-      tasksArray.push({ // guarda a informacao de cada tarefa num objecto
-          identificacao: task.id,
-          title: task.title,
-          description: task.description,
-          status: task.status
-      });
-  });
-  localStorage.setItem('tasks', JSON.stringify(tasksArray)); // guarda o array de tarefas no local storage
-}
-function loadTasks() { // carrega as tarefas guardadas no local storage
-  const tasks = JSON.parse(localStorage.getItem('tasks'));
+  const tasks = document.querySelectorAll('.task');
+  const tasksArrayToDo = [];
+  const tasksArrayDoing = [];
+  const tasksArrayDone = [];
+  
   tasks.forEach(task => {
+    if (task.status === 'panel1') {
+      tasksArrayToDo.push({
+        identificacao: task.id,
+        title: task.title,
+        description: task.description,
+        status: task.status
+      });
+    } else if (task.status === 'panel2') {
+      tasksArrayDoing.push({
+        identificacao: task.id,
+        title: task.title,
+        description: task.description,
+        status: task.status
+      });
+    } else if (task.status === 'panel3') {
+      tasksArrayDone.push({
+        identificacao: task.id,
+        title: task.title,
+        description: task.description,
+        status: task.status
+      });
+    }
+  });
+
+  const tasksArray = [tasksArrayToDo, tasksArrayDoing, tasksArrayDone];
+  localStorage.setItem('tasks', JSON.stringify(tasksArray));
+}
+
+function loadTasks() { // carrega as tarefas guardadas no local storage
+  const tasksArray = JSON.parse(localStorage.getItem('tasks'));
+  const tasksArrayToDo = tasksArray[0];
+  const tasksArrayDoing = tasksArray[1];
+  const tasksArrayDone = tasksArray[2];
+  tasksArrayToDo.forEach(task => { // percorre o array de tarefas
     const taskElement = createTaskElement(task);
     const panel = document.getElementById(task.status); // guarda o painel onde a tarefa vai ser colocada
     panel.appendChild(taskElement); // adiciona a tarefa ao painel
     attachDragAndDropListeners(taskElement); // adiciona os listeners de drag and drop a tarefa
+  });
+  tasksArrayDoing.forEach(task => {
+    const taskElement = createTaskElement(task);
+    const panel = document.getElementById(task.status);
+    panel.appendChild(taskElement);
+    attachDragAndDropListeners(taskElement);
+  });
+  tasksArrayDone.forEach(task => {
+    const taskElement = createTaskElement(task);
+    const panel = document.getElementById(task.status);
+    panel.appendChild(taskElement);
+    attachDragAndDropListeners(taskElement);
   });
 }
 function deleteTask(id) {
   var task = document.getElementById(id);
   task.remove();
 const tasks = JSON.parse(localStorage.getItem('tasks'));
-for (var i = 0; i < tasks.length; i++) { // percorre o array de tarefas
-  if (tasks[i].id == id) { // se a tarefa tiver o mesmo id que a tarefa passada como argumento
-    removeItemFromArr(tasks, tasks[i]); // remove a tarefa do array de tarefas
+const tasksArrayToDo = tasks[0];
+const tasksArrayDoing = tasks[1];
+const tasksArrayDone = tasks[2];
+if(tasksArrayToDo) {
+  for (var i = 0; i < tasksArrayToDo.length; i++) { // percorre o array de tarefas
+    if (tasksArrayToDo[i].identificacao == id) { // se a tarefa tiver o mesmo id que a tarefa passada como argumento
+      removeItemFromArr(tasksArrayToDo, tasksArrayToDo[i]); // remove a tarefa do array de tarefas
+    }
+  }
+}
+if (tasksArrayDoing) {
+  for (var i = 0; i < tasksArrayDoing.length; i++) {
+    if (tasksArrayDoing[i].identificacao == id) {
+      removeItemFromArr(tasksArrayDoing, tasksArrayDoing[i]);
+    }
+  }
+}
+if (tasksArrayDone) {
+  for (var i = 0; i < tasksArrayDone.length; i++) {
+    if (tasksArrayDone[i].identificacao == id) {
+      removeItemFromArr(tasksArrayDone, tasksArrayDone[i]);
+    }
   }
   saveTasks();
 }
@@ -167,5 +230,3 @@ for (var i = 0; i < tasks.length; i++) { // percorre o array de tarefas
 window.onclose = function () { // guarda as tarefas no local storage quando a pagina e fechada
   saveTasks();
 }
-
-
