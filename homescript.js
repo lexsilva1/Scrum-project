@@ -98,46 +98,58 @@ function createTask(name, description) {  // Cria uma tarefa com o nome e descri
   title :name,
   description: description,
   identificacao: 'task-' + Date.now(),
-  status: 'panel1'
+  status: 'panel1',
+  priority: 'low'
   }
   return task;
 }
 
-function createTaskElement(task) { // Cria um elemento tarefa com a informação passada como argumento
-  const taskElement = document.createElement('div');
-  taskElement.id = task.identificacao; // Define o Id da tarefa.
-  taskElement.className = 'task';
-  taskElement.draggable = true;
-  taskElement.description = task.description; // Guarda a descrição da tarefa no elemento.
-  taskElement.title = task.title;
-  taskElement.status = task.status;
-  const postIt = document.createElement('div');
-  postIt.className = 'post-it';
+function createTaskElement(task) {
+    const taskElement = document.createElement('div');
+    taskElement.id = task.identificacao;
+    taskElement.priority = task.priority;
+    taskElement.classList.add('task'); 
+    if (task.priority === 'low') {
+        taskElement.classList.add('low');
+    } else if (task.priority === 'medium') {
+        taskElement.classList.add('medium');
+    } else if (task.priority === 'high') {
+        taskElement.classList.add('high');
+    }
+    taskElement.draggable = true;
+    taskElement.description = task.description;
+    taskElement.title = task.title;
+    taskElement.status = task.status;
 
-  const taskTitle = document.createElement('h3');
-  taskTitle.textContent = task.title;
+    const postIt = document.createElement('div');
+    postIt.className = 'post-it';
 
-  const deleteButton = document.createElement('img');
-  deleteButton.src = 'multimedia/dark_cross.png';
-  deleteButton.className = 'apagarButton';
-  deleteButton.addEventListener('click', function () {
-    deleteTask(taskElement.id);
-    taskElement.remove();
-  });
+    const taskTitle = document.createElement('h3');
+    taskTitle.textContent = task.title;
 
-  postIt.appendChild(taskTitle);
-  postIt.appendChild(deleteButton);
-  taskElement.appendChild(postIt);
-  taskElement.addEventListener('dblclick', function () {
-    sessionStorage.setItem("taskDescription", taskElement.description);
-    sessionStorage.setItem("taskTitle", taskElement.title);
-    sessionStorage.setItem("taskid", taskElement.id);
-    sessionStorage.setItem("taskStatus", taskElement.status);
-    window.location.href = 'task.html';
+    const deleteButton = document.createElement('img');
+    deleteButton.src = 'multimedia/dark_cross.png';
+    deleteButton.className = 'apagarButton';
+    deleteButton.addEventListener('click', function () {
+        deleteTask(taskElement.id);
+        taskElement.remove();
+    });
 
-  });
-  return taskElement;
+    postIt.appendChild(taskTitle);
+    postIt.appendChild(deleteButton);
+    taskElement.appendChild(postIt);
+    taskElement.addEventListener('dblclick', function () {
+        sessionStorage.setItem("taskDescription", taskElement.description);
+        sessionStorage.setItem("taskTitle", taskElement.title);
+        sessionStorage.setItem("taskid", taskElement.id);
+        sessionStorage.setItem("taskStatus", taskElement.status);
+        sessionStorage.setItem("taskPriority", taskElement.priority);
+        window.location.href = 'task.html';
+    });
+
+    return taskElement;
 }
+
 function saveTasks() {
   const tasks = document.querySelectorAll('.task');
   const tasksArrayToDo = [];
@@ -150,21 +162,24 @@ function saveTasks() {
         identificacao: task.id,
         title: task.title,
         description: task.description,
-        status: task.status
+        status: task.status,
+        priority: task.priority
       });
     } else if (task.status === 'panel2') {
       tasksArrayDoing.push({
         identificacao: task.id,
         title: task.title,
         description: task.description,
-        status: task.status
+        status: task.status,
+        priority: task.priority
       });
     } else if (task.status === 'panel3') {
       tasksArrayDone.push({
         identificacao: task.id,
         title: task.title,
         description: task.description,
-        status: task.status
+        status: task.status,
+        priority: task.priority
       });
     }
   });

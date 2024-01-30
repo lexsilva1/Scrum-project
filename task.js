@@ -14,6 +14,14 @@ window.onload = function () {
 const todoButton = document.getElementById("todo-button");
 const doingButton = document.getElementById("doing-button");
 const doneButton = document.getElementById("done-button");
+// Remove the existing declaration of lowButton
+// const lowButton = document.getElementById("low-button");
+
+
+// Get the priority buttons
+const lowButton = document.getElementById("low-button");
+const mediumButton = document.getElementById("medium-button");
+const highButton = document.getElementById("high-button");
 
 // Set the todo-button as the default selected button
 var taskStatus = sessionStorage.getItem("taskStatus");
@@ -23,6 +31,15 @@ todoButton.classList.add("selected");
 doingButton.classList.add("selected");
 } else if(taskStatus == "panel3"){
 doneButton.classList.add("selected");
+}
+
+var taskPriority = sessionStorage.getItem("taskPriority");
+if(taskPriority == "low"){
+    lowButton.classList.add("selected");
+} else if( taskPriority== "medium"){
+    mediumButton.classList.add("selected");
+} else if(taskPriority == "high"){
+    highButton.classList.add("selected");
 }
 
 // Add event listeners to the status buttons
@@ -46,40 +63,39 @@ doneButton.addEventListener("click", () => {
     doneButton.classList.add("selected");
     sessionStorage.setItem("taskStatus", "panel3");
 });
-// Get the priority buttons
-const lowButton = document.getElementById("low-button");
-const mediumButton = document.getElementById("medium-button");
-const highButton = document.getElementById("high-button");
-
-// Set the low-button as the default selected button
-lowButton.classList.add("selected");
 
 // Add event listeners to the priority buttons
 lowButton.addEventListener("click", () => {
     lowButton.classList.add("selected");
     mediumButton.classList.remove("selected");
     highButton.classList.remove("selected");
+    sessionStorage.setItem("taskPriority", "low");
 });
 
 mediumButton.addEventListener("click", () => {
     lowButton.classList.remove("selected");
     mediumButton.classList.add("selected");
     highButton.classList.remove("selected");
+    sessionStorage.setItem("taskPriority", "medium");
 });
 
 highButton.addEventListener("click", () => {
     lowButton.classList.remove("selected");
     mediumButton.classList.remove("selected");
     highButton.classList.add("selected");
+    sessionStorage.setItem("taskPriority", "high");
 });
+
 const cancelbutton = document.getElementById("cancel-button");
 cancelbutton.addEventListener("click", () => {
     sessionStorage.removeItem("taskDescription");
     sessionStorage.removeItem("taskTitle");
     sessionStorage.removeItem("taskid");
     sessionStorage.removeItem("taskStatus");
+    sessionStorage.removeItem("taskPriority");
     window.location.href = 'home.html';
 });
+
 const savebutton = document.getElementById("save-button");
 savebutton.addEventListener("click", () => {
     var tasks = JSON.parse(localStorage.getItem("tasks"));
@@ -87,6 +103,7 @@ savebutton.addEventListener("click", () => {
     var taskStatus = sessionStorage.getItem("taskStatus");
     var taskDescription = document.getElementById("descricao-task").value.trim();
     var taskTitle = document.getElementById("titulo-task").value.trim();
+    var taskPriority = sessionStorage.getItem("taskPriority");
     if(taskDescription == "" || taskTitle == ""){
         alert("Por favor preencha todos os campos");
         return;
@@ -97,6 +114,7 @@ savebutton.addEventListener("click", () => {
             task.title = taskTitle;
             task.description = taskDescription;
             task.status = taskStatus;
+            task.priority = taskPriority;
         }
     });
 
@@ -105,6 +123,7 @@ savebutton.addEventListener("click", () => {
             task.title = taskTitle;
             task.description = taskDescription;
             task.status = taskStatus;
+            task.priority = taskPriority;
         }
     });
 
@@ -113,6 +132,7 @@ savebutton.addEventListener("click", () => {
             task.title = taskTitle;
             task.description = taskDescription;
             task.status = taskStatus;
+            task.priority = taskPriority;
         }
     });
 
@@ -122,6 +142,7 @@ savebutton.addEventListener("click", () => {
     sessionStorage.removeItem("taskTitle");
     sessionStorage.removeItem("taskid");
     sessionStorage.removeItem("taskStatus");
+    sessionStorage.removeItem("taskPriority");
     window.location.href = 'home.html';
 });
 

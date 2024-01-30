@@ -341,13 +341,21 @@ main {
 }
 
 .task {
-    background-image: url('multimedia/post-it-03.png');
     background-size: 100px;
     background-repeat: no-repeat;
     position: relative;
     height: 115px;
 }
-.task .dragging{
+.task.low{
+background-image: url('multimedia/post-it_green.png');
+}
+.task.medium{
+background-image: url('multimedia/post-it_yellow.png');
+}
+.task.high{
+background-image: url('multimedia/post-it_red.png');
+}
+.task.dragging{
     opacity: 0.5;
 }
 .task h3 {
