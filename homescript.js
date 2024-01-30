@@ -118,7 +118,7 @@ function createTaskElement(task) { // Cria um elemento tarefa com a informação
   taskTitle.textContent = task.title;
 
   const deleteButton = document.createElement('img');
-  deleteButton.src = 'multimedia/green_cross.png';
+  deleteButton.src = 'multimedia/dark_cross.png';
   deleteButton.className = 'apagarButton';
   deleteButton.addEventListener('click', function () {
     deleteTask(taskElement.id);
