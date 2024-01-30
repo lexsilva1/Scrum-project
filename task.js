@@ -1,10 +1,29 @@
+window.onload = function () {
+    var username = sessionStorage.getItem("login");
+    var descricao = sessionStorage.getItem("taskDescription");
+    var titulo = sessionStorage.getItem("taskTitle");
+    if (username) {
+      document.getElementById("login").textContent = username;
+      document.getElementById('titulo-task').innerHTML = titulo;
+      document.getElementById('descricao-task').textContent=descricao;
+    }
+};
+
+
 // Get the status buttons
 const todoButton = document.getElementById("todo-button");
 const doingButton = document.getElementById("doing-button");
 const doneButton = document.getElementById("done-button");
 
 // Set the todo-button as the default selected button
+var taskStatus = sessionStorage.getItem("taskStatus");
+if(taskStatus == "panel1"){
 todoButton.classList.add("selected");
+} else if( taskStatus== "panel2"){
+doingButton.classList.add("selected");
+} else if(taskStatus == "panel3"){
+doneButton.classList.add("selected");
+}
 
 // Add event listeners to the status buttons
 todoButton.addEventListener("click", () => {
@@ -50,3 +69,4 @@ highButton.addEventListener("click", () => {
     mediumButton.classList.remove("selected");
     highButton.classList.add("selected");
 });
+
