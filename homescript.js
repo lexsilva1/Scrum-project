@@ -227,6 +227,10 @@ if (tasksArrayDone) {
   saveTasks();
 }
 }
+function removeItemFromArr(arr, item) {
+  var i = arr.indexOf(item);
+  arr.splice(i, 1);
+}
 window.onclose = function () { // guarda as tarefas no local storage quando a pagina e fechada
   saveTasks();
 }
