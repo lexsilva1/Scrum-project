@@ -412,17 +412,16 @@ div.panel {
 .main-task #titulo-task {
     margin-top: 50px;
     margin-bottom: 20px;
-    width: 520px;
-    height: 30px;
-    padding: 10px;
+    width: 500px;
+    height: 25px;
+    padding: 20px;
     resize: none;
     margin-left: 100px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1.2px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     font-weight: 600;
-    text-align: center;
     background-color: #c8e4e7;
     color: #223C4A;
     border-top-right-radius: 10px;
@@ -447,7 +446,7 @@ div.panel {
     border-color: #223C4A;
     border-width: 2px;
 }
-.main-task ::placeholder {
+.main-task ::placeholder { // placeholder do titulo e descricao para retirar
     color: #223C4A;
 }
 
@@ -459,16 +458,20 @@ div.panel {
     width: auto;
 }
 .status-and-priority {
-    margin-top: 110px;
+    margin-left: 120px;
+    margin-top: 90px;
+    width: 520px;
+    height: 393px;
+    background-color: #c8e4e741;
     border: 2px solid #223C4A;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
 }
 .task-buttons {
-    margin-left: 160px;
     display: flex;
     flex-direction: column;
     gap: 20px; /* Espaçamento entre as colunas */
+
 }
 .task-buttons #taskH4 {
     text-align: center;
@@ -484,8 +487,9 @@ div.panel {
 .task-status .status-buttons,
 .task-priority .priority-buttons {
     margin: 30px;
+    padding-left: 40px;
     display: flex;
-    gap: 30px; /* Espaçamento entre os botões */
+    gap: 40px; /* Espaçamento entre os botões */
 }
 
 .status-button,
@@ -580,8 +584,8 @@ div.panel {
 }
 
 .task-save {
-    margin-top: 115px;
-    margin-left: 30px;
+    margin-top: 80px;
+    margin-left: 230px;
     display: flex;
     gap: 30px;
     text-transform: uppercase;
@@ -609,9 +613,9 @@ div.panel {
 #cancel-button {
     width: 150px;
     height: 45px;
-    background-color: #f6f8fa;
+    background-color: #c8e4e7;
     color: #0E1A21;
-    border-color: #f6f8fa;
+    border-color: #c8e4e7;
     padding: 10px;
     text-align: center;
     text-transform: uppercase;
