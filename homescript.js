@@ -128,7 +128,7 @@ function createTaskElement(task) {
     taskTitle.textContent = task.title;
 
     const deleteButton = document.createElement('img');
-    deleteButton.src = 'multimedia/dark_cross.png';
+    deleteButton.src = 'multimedia/dark-cross-01.png';
     deleteButton.className = 'apagarButton';
     deleteButton.addEventListener('click', function () {
         const  deletemodal = document.getElementById('delete-modal');

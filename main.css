@@ -380,7 +380,7 @@ box-shadow:0 4px 8px rgba(0, 0, 0, 0.5)
     cursor: pointer;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s ease;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 .modal {
     display: none;
@@ -403,12 +403,17 @@ box-shadow:0 4px 8px rgba(0, 0, 0, 0.5)
     padding-top: 15px;
 }
 .apagarButton {
-    margin-left: 160px;
-    margin-top: 110px;
+    margin-left: 155px;
+    margin-top: 107px;
     max-width: 17px;
     max-height: 17px;
     cursor: pointer;
 }
+.apagarButton:hover {
+    max-width: 22px;
+    max-height: 22px;
+}
+
 h2 {
     text-align: center;
     margin: 0;
@@ -503,6 +508,51 @@ div.panel {
 }
 .main-task ::placeholder { /* placeholder do titulo e descricao para retirar */
     color: #223C4A;
+}
+.task-save {
+    justify-content: center;
+    margin-left: 80px;
+    margin-top: 60px;
+    display: flex;
+    gap: 30px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#save-button {
+    width: 150px;
+    height: 45px;
+    background-color: #0E1A21;
+    color: #F4F5F7;
+    border-color: #0E1A21;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    font-weight:bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px #808080;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+#cancel-button {
+    width: 150px;
+    height: 45px;
+    background-color: #c8e4e7;
+    color: #0E1A21;
+    border-color: #c8e4e7;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    font-weight:bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px #808080;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
 }
 
 .status-and-priority {
@@ -632,56 +682,8 @@ div.panel {
     transition: box-shadow 0.3s ease;
 }
 
-.task-save-container {
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    width: 100%;
-}
-.task-save {
-    margin-top: 40px;
-    margin-bottom: 100px;
-    display: flex;
-    gap: 30px;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-}
-#save-button {
-    width: 150px;
-    height: 45px;
-    background-color: #0E1A21;
-    color: #F4F5F7;
-    border-color: #0E1A21;
-    padding: 10px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-size: 16px;
-    font-weight:bold;
-    cursor: pointer;
-    box-shadow: 0px 4px 8px #808080;
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
-}
-#cancel-button {
-    width: 150px;
-    height: 45px;
-    background-color: #c8e4e7;
-    color: #0E1A21;
-    border-color: #c8e4e7;
-    padding: 10px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-size: 16px;
-    font-weight:bold;
-    cursor: pointer;
-    box-shadow: 0px 4px 8px #808080;
-    border-top-right-radius: 8px;
-    border-top-left-radius: 8px;
-}
+
+
 
 
 /* Definicoes do footer*/
