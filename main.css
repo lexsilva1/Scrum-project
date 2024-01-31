@@ -307,7 +307,7 @@ main {
     background-color: #c8e4e7;
     border: 2px solid #223C4A;
     overflow: auto;
-
+    
     scrollbar-width: thin;
     scrollbar-color: #21979c #f9f9f9;
 }
@@ -341,20 +341,37 @@ main {
 }
 
 .task {
-    background-size: 100px;
+    background-size: 190px;
     background-repeat: no-repeat;
     position: relative;
-    height: 115px;
+    width: 190px;
+    height: 190px; /* tamanho do espaço em que é inserido cada post-it (inclui espaçamento entre post-its) */
+    margin-top: 20px;
 }
 
 .task.low{
-background-image: url('multimedia/post-it_green.png');
+background-image: url('multimedia/post-it-square-green.png');
+margin-top: 30px;
+margin-bottom: 30px;
+border-top-right-radius: 10px;
+border-top-left-radius: 10px;
+box-shadow:0 4px 8px rgba(0, 0, 0, 0.5)
 }
 .task.medium{
-background-image: url('multimedia/post-it_yellow.png');
+background-image: url('multimedia/post-it-square-yellow.png');
+margin-top: 30px;
+margin-bottom: 30px;
+border-top-right-radius: 10px;
+border-top-left-radius: 10px;
+box-shadow:0 4px 8px rgba(0, 0, 0, 0.5)
 }
 .task.high{
-background-image: url('multimedia/post-it_red.png');
+background-image: url('multimedia/post-it-square-red.png');
+margin-top: 30px;
+margin-bottom: 30px;
+border-top-right-radius: 10px;
+border-top-left-radius: 10px;
+box-shadow:0 4px 8px rgba(0, 0, 0, 0.5)
 }
 .task.dragging{
     opacity: 0.5;
@@ -367,10 +384,10 @@ background-image: url('multimedia/post-it_red.png');
     padding-top: 15px;
 }
 .apagarButton {
-    margin-left: 75px;
-    margin-top: 19px;
-    max-width: 12px;
-    max-height: 12px;
+    margin-left: 160px;
+    margin-top: 110px;
+    max-width: 17px;
+    max-height: 17px;
     cursor: pointer;
 }
 h2 {
