@@ -88,12 +88,26 @@ highButton.addEventListener("click", () => {
 
 const cancelbutton = document.getElementById("cancel-button");
 cancelbutton.addEventListener("click", () => {
-    sessionStorage.removeItem("taskDescription");
-    sessionStorage.removeItem("taskTitle");
-    sessionStorage.removeItem("taskid");
-    sessionStorage.removeItem("taskStatus");
-    sessionStorage.removeItem("taskPriority");
-    window.location.href = 'home.html';
+    // Open the cancel modal
+    const cancelModal = document.getElementById("cancel-modal");
+    cancelModal.style.display = "block";
+
+
+    const cancelButton = document.getElementById("continue-editing-button");
+    cancelButton.addEventListener("click", () => {
+        window.location.href = 'task.html';
+    });
+
+    const confirmButton = document.getElementById("confirm-cancel-button");
+    confirmButton.addEventListener("click", () => {
+        sessionStorage.removeItem("taskDescription");
+        sessionStorage.removeItem("taskTitle");
+        sessionStorage.removeItem("taskid");
+        sessionStorage.removeItem("taskStatus");
+        sessionStorage.removeItem("taskPriority");
+        window.location.href = 'home.html';    
+    });
+    cancelModal.style.display = "block";
 });
 
 const savebutton = document.getElementById("save-button");

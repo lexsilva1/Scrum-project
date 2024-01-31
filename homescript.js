@@ -131,8 +131,18 @@ function createTaskElement(task) {
     deleteButton.src = 'multimedia/dark_cross.png';
     deleteButton.className = 'apagarButton';
     deleteButton.addEventListener('click', function () {
-        deleteTask(taskElement.id);
-        taskElement.remove();
+        const  deletemodal = document.getElementById('delete-modal');
+        deletemodal.style.display = "block";
+        const deletebtn = document.getElementById('delete-button');
+        deletebtn.addEventListener('click', () => {
+            deleteTask(taskElement.id);
+            taskElement.remove();
+            deletemodal.style.display = "none";
+        });
+        const cancelbtn = document.getElementById('cancel-delete-button');
+        cancelbtn.addEventListener('click', () => {
+            deletemodal.style.display = "none";
+        });
     });
 
     postIt.appendChild(taskTitle);
