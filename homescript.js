@@ -127,6 +127,9 @@ function createTaskElement(task) {
     const taskTitle = document.createElement('h3');
     taskTitle.textContent = task.title;
 
+    const displayDescription = document.createElement('p');
+    displayDescription.textContent = task.description;
+
     const deleteButton = document.createElement('img');
     deleteButton.src = 'multimedia/dark-cross-01.png';
     deleteButton.className = 'apagarButton';
@@ -148,6 +151,12 @@ function createTaskElement(task) {
     postIt.appendChild(taskTitle);
     postIt.appendChild(deleteButton);
     taskElement.appendChild(postIt);
+    taskElement.addEventListener('mouseover', function () {
+      postIt.appendChild(displayDescription);
+    });
+    taskElement.addEventListener('mouseout', function () {
+      postIt.removeChild(displayDescription);
+    });
     taskElement.addEventListener('dblclick', function () {
         sessionStorage.setItem("taskDescription", taskElement.description);
         sessionStorage.setItem("taskTitle", taskElement.title);
