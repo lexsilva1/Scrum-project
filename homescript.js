@@ -126,7 +126,8 @@ function createTaskElement(task) {
 
     const taskTitle = document.createElement('h3');
     taskTitle.textContent = task.title;
-
+    const descriprioncontainer = document.createElement('div');
+    descriprioncontainer.className = 'post-it-text';
     const displayDescription = document.createElement('p');
     displayDescription.textContent = task.description;
 
@@ -135,7 +136,7 @@ function createTaskElement(task) {
     deleteButton.className = 'apagarButton';
     deleteButton.addEventListener('click', function () {
         const  deletemodal = document.getElementById('delete-modal');
-        deletemodal.style.display = "block";
+         deletemodal.style.display = "grid"; 
         const deletebtn = document.getElementById('delete-button');
         deletebtn.addEventListener('click', () => {
             deleteTask(taskElement.id);
@@ -147,16 +148,17 @@ function createTaskElement(task) {
             deletemodal.style.display = "none";
         });
     });
-
+    descriprioncontainer.appendChild(displayDescription);
     postIt.appendChild(taskTitle);
     postIt.appendChild(deleteButton);
     taskElement.appendChild(postIt);
-    taskElement.addEventListener('mouseover', function () {
+    postIt.appendChild(descriprioncontainer);
+/*     taskElement.addEventListener('mouseover', function () {
       postIt.appendChild(displayDescription);
     });
     taskElement.addEventListener('mouseout', function () {
       postIt.removeChild(displayDescription);
-    });
+    }); */
     taskElement.addEventListener('dblclick', function () {
         sessionStorage.setItem("taskDescription", taskElement.description);
         sessionStorage.setItem("taskTitle", taskElement.title);
@@ -268,3 +270,56 @@ function removeItemFromArr(arr, item) {
 window.onclose = function () { // guarda as tarefas no local storage quando a pagina e fechada
   saveTasks();
 }
+const displayTime = document.querySelector(".display-time");
+// Time
+function showTime() {
+  let time = new Date();
+  displayTime.innerText = time.toLocaleTimeString("en-US", { hour12: false });
+  setTimeout(showTime, 1000);
+}
+
+showTime();
+
+// Date
+function updateDate() {
+  let today = new Date();
+
+  // return number
+  let dayName = today.getDay(),
+    dayNum = today.getDate(),
+    month = today.getMonth(),
+    year = today.getFullYear();
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const dayWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  // value -> ID of the html element
+  const IDCollection = ["day", "daynum", "month", "year"];
+  // return value array with number as a index
+  const val = [dayWeek[dayName], dayNum, months[month], year];
+  for (let i = 0; i < IDCollection.length; i++) {
+    document.getElementById(IDCollection[i]).firstChild.nodeValue = val[i];
+  }
+}
+
+updateDate();
