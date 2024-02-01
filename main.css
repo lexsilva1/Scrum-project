@@ -220,6 +220,7 @@ aside {
 }
 
 .logo img {
+  padding-block: 25px;
   max-height: 150px; /* Define a altura máxima do logo */
   width: auto; /* Mantém a proporção */
 }
@@ -228,9 +229,7 @@ aside h3 {
   color: #223c4a;
   text-transform: uppercase;
   font-size: 20px;
-  margin-top: 25px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+
 }
 #taskName {
   margin-bottom: 10px;
@@ -265,10 +264,66 @@ aside h3 {
   left: 10px;
   width: 140px;
 }
+.task-buttons-home {
+    display: flex;
+    flex-direction: column;
+  }
+  .priority-buttons-home {
+    justify-content: center;
+    display: flex;
+    gap: 10px; /* Espaçamento entre os botões */
+  }
+  .priority-button-home {
+    --button-shadow-color: #c3c3c3;
+    margin-top: 15px;
+    width: 56px;
+    height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px var(--button-shadow-color);
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    background-color: var(--post-it-bg);
+    transition: box-shadow 0.3s ease;
+  
+    &:hover {
+      --button-shadow-color: #808080;
+      transition: box-shadow 0.3s ease;
+    }
+  }
+  .priority-button-home {
+    border-color: #0e1a21;
+    color: #223c4a;
+  }
+  .priority-button-home.low {
+    --post-it-bg: #a8db27;
+  }
+  .priority-button-home.medium {
+    --post-it-bg: #ffd549;
+  }
+  .priority-button-home.high {
+    --post-it-bg: #ff4a5a;
+  }
+  
+  .priority-button-home:hover {
+    background-color: color-mix(in srgb, var(--post-it-bg), white 25%);
+    transition: background-color 0.3s ease;
+  }
+  .priority-button-home.selected {
+    background-color: color-mix(in srgb, var(--post-it-bg), white 10%) !important;
+    border-width: 2px !important;
+    border-color: #97A7B0 !important;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.8s ease;
+    transform: translateY(4px);
+  }
 #addTask {
   text-align: center;
-  margin-top: 20px;
-  padding-left: 10px;
+  margin-top: 25px;
   width: 100px;
   height: 32px;
   text-transform: uppercase;
@@ -463,6 +518,7 @@ main {
 .display-date {
   text-align: center;
   font-size: 1rem;
+  font-weight: 600;
   -webkit-box-reflect: below 2px
   linear-gradient(transparent, rgba(255, 255, 255, 0.05));
   color: var(--main-grey);
