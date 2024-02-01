@@ -422,6 +422,7 @@ main {
   backdrop-filter: blur(5px);
   display: none;
   place-items: center;
+  z-index: 1;
 }
 
 .modal-content {
@@ -461,18 +462,17 @@ main {
 }
 .display-date {
   text-align: center;
-  font-size: 1.6rem;
-  font-weight: 600;
+  font-size: 1rem;
+  -webkit-box-reflect: below 2px
+  linear-gradient(transparent, rgba(255, 255, 255, 0.05));
   color: var(--main-grey);
 }
 
 .display-time {
   display: flex;
-  font-size: 1.6rem;
-  font-weight: bold;
-  border: 2px solid var(--blue2);
-  padding: 5px;
-  border-radius: 5px;
+  margin-left: 0px;
+  font-size: 1rem;
+  font-weight: 600;
   transition: ease-in-out 0.1s;
   transition-property: background, box-shadow, color;
   -webkit-box-reflect: below 2px
@@ -768,13 +768,22 @@ div.panel {
   transition: background-color 0.3s ease;
 }
 
-.status-button.selected,
+.status-button.selected {
+    background-color: color-mix(in srgb, #223c4a, grey 10%) !important;
+    border-width: 2px !important;
+    border-color: #97A7B0 !important;
+    color: #8AD6FF !important;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.8s ease;
+    transform: translateY(4px);
+  }
 .priority-button.selected {
-  background-color: color-mix(in srgb, var(--post-it-bg), grey 30%) !important;
+  background-color: color-mix(in srgb, var(--post-it-bg), white 10%) !important;
   border-width: 2px !important;
-  border-color: #2cccd3 !important;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease;
+  border-color: #97A7B0 !important;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.8s ease;
+  transform: translateY(4px);
 }
 
 /* Definicoes do footer*/
