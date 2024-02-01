@@ -107,7 +107,7 @@ cancelbutton.addEventListener("click", () => {
         sessionStorage.removeItem("taskPriority");
         window.location.href = 'home.html';    
     });
-    cancelModal.style.display = "block";
+    cancelModal.style.display = "grid";
 });
 
 const savebutton = document.getElementById("save-button");
