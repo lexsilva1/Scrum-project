@@ -100,7 +100,7 @@ body {
   border-top-left-radius: 5px;
 }
 .loginpanel ::placeholder {
-  color: var(--main-color);
+  color: var(--green2);
 }
 .loginpanel input[type="text"] {
   color: var(--green3);
@@ -392,21 +392,25 @@ main {
   border: 2px solid var(--green3);
 }
 /* Estilos para navegadores WebKit (Chrome, Safari) */
-.panel::-webkit-scrollbar {
+.panel::-webkit-scrollbar,
+.text-task::-webkit-scrollbar {
   width: 13px; /* largura da barra de rolagem */
 }
 
-.panel::-webkit-scrollbar-thumb {
+.panel::-webkit-scrollbar-thumb,
+.text-task::-webkit-scrollbar-thumb {
   background-color: var(--green2); /* cor do indicador de rolagem */
   border-top-right-radius: 8px;
 }
 
-.panel::-webkit-scrollbar-track {
+.panel::-webkit-scrollbar-track,
+.text-task::-webkit-scrollbar-track {
   background-color: var(--white); /* cor da trilha da rolagem */
   margin-right: 1px; /* afasta a barra de rolagem do lado direito em 1px */
   border-top-right-radius: 9px;
 }
-.panel::-webkit-scrollbar {
+.panel::-webkit-scrollbar,
+.text-task::-webkit-scrollbar {
   height: calc(100% - 2px); /* altura da barra de rolagem */
   padding-right: 1px;
 }
@@ -671,6 +675,9 @@ div.panel {
 .main-task ::placeholder {
   /* placeholder do titulo e descricao para retirar */
   color: var(--green3);
+}
+.text-task {
+  scrollbar-color: var(--green2) var(--white);
 }
 .task-save {
   justify-content: center;
