@@ -130,6 +130,7 @@ body {
   margin-top: 10px;
 }
 
+
 /* Animacao fade in para o container de login */
 @keyframes fadeIn {
   from {
@@ -342,6 +343,12 @@ aside h3 {
 #addTask:hover {
   background-color: var(--green3);
   color: var(--green1);
+}
+#warningMessage2 {
+  color: var(--green3);
+  font-size: 12px;
+  margin-top: 10px;
+  text-align: center;
 }
 
 /* Definicoes do painel main, onde estao as seccoes do Scrum (To do, Doing, Done)*/

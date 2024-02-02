@@ -90,7 +90,6 @@ highButton.addEventListener("click", () => setPriorityButtonSelected(highButton,
 
 function getDragAfterElement(panel, y) {
     const draggableElements = [...panel.querySelectorAll('.task:not(.dragging)')] // dentro da lista de paineis, seleciona todos os elementos com a classe task que nao tenham a classe dragging  
-
     return draggableElements.reduce((closest, child) => {// retorna o elemento mais proximo do elemento que esta a ser arrastado e que esta a ser comparado
         const box = child.getBoundingClientRect() // retorna o tamanho do elemento e a sua posicao relativa ao viewport
         const offset = y - box.top - box.height / 2// calcula a distancia entre o elemento que esta a ser arrastado e o elemento que esta a ser comparado
@@ -105,7 +104,12 @@ document.getElementById('addTask').addEventListener('click', function() {
   var Description = taskDescription.value.trim();
   var Name = taskName.value.trim();
   var priority = sessionStorage.getItem("taskPriority");
-  if (Name.trim() !== '' && Description.trim() !== ''){
+  if (Name === '' || Description === '' || priority === null) {
+    document.getElementById('warningMessage2').innerText = 'Por favor preencha todos os campos.';
+  } else {
+    document.getElementById('warningMessage2').innerText = '';
+  }
+  if (Name.trim() !== '' && Description.trim() !== '' && priority !== null){
       const task = createTask(Name, Description, priority);
       const taskElement =createTaskElement(task);
      document.getElementById('todo').appendChild(taskElement);
@@ -195,102 +199,6 @@ function createTaskElement(task) {
     return taskElement;
 }
 
-/*function saveTasks() {
-  const tasks = document.querySelectorAll('.task');
-  const tasksArrayToDo = [];
-  const tasksArrayDoing = [];
-  const tasksArrayDone = [];
-  
-  tasks.forEach(task => {
-    if (task.status === 'todo') {
-      tasksArrayToDo.push({
-        identificacao: task.id,
-        title: task.title,
-        description: task.description,
-        status: task.status,
-        priority: task.priority
-      });
-    } else if (task.status === 'doing') {
-      tasksArrayDoing.push({
-        identificacao: task.id,
-        title: task.title,
-        description: task.description,
-        status: task.status,
-        priority: task.priority
-      });
-    } else if (task.status === 'done') {
-      tasksArrayDone.push({
-        identificacao: task.id,
-        title: task.title,
-        description: task.description,
-        status: task.status,
-        priority: task.priority
-      });
-    }
-  });
-
-  const tasksArray = [tasksArrayToDo, tasksArrayDoing, tasksArrayDone];
-  localStorage.setItem('tasks', JSON.stringify(tasksArray));
-}
-
-function loadTasks() { // carrega as tarefas guardadas no local storage
-  const tasksArray = JSON.parse(localStorage.getItem('tasks'));
-  const tasksArrayToDo = tasksArray[0];
-  const tasksArrayDoing = tasksArray[1];
-  const tasksArrayDone = tasksArray[2];
-  tasksArrayToDo.forEach(task => { // percorre o array de tarefas
-    const taskElement = createTaskElement(task);
-    const panel = document.getElementById(task.status); // guarda o painel onde a tarefa vai ser colocada
-    panel.appendChild(taskElement); // adiciona a tarefa ao painel
-    attachDragAndDropListeners(taskElement); // adiciona os listeners de drag and drop a tarefa
-  });
-  tasksArrayDoing.forEach(task => {
-    const taskElement = createTaskElement(task);
-    const panel = document.getElementById(task.status);
-    panel.appendChild(taskElement);
-    attachDragAndDropListeners(taskElement);
-  });
-  tasksArrayDone.forEach(task => {
-    const taskElement = createTaskElement(task);
-    const panel = document.getElementById(task.status);
-    panel.appendChild(taskElement);
-    attachDragAndDropListeners(taskElement);
-  });
-}
-function deleteTask(id) {
-  var task = document.getElementById(id);
-  task.remove();
-const tasks = JSON.parse(localStorage.getItem('tasks'));
-const tasksArrayToDo = tasks[0];
-const tasksArrayDoing = tasks[1];
-const tasksArrayDone = tasks[2];
-if(tasksArrayToDo) {
-  for (var i = 0; i < tasksArrayToDo.length; i++) { // percorre o array de tarefas
-    if (tasksArrayToDo[i].identificacao == id) { // se a tarefa tiver o mesmo id que a tarefa passada como argumento
-      removeItemFromArr(tasksArrayToDo, tasksArrayToDo[i]); // remove a tarefa do array de tarefas
-    }
-  }
-}
-if (tasksArrayDoing) {
-  for (var i = 0; i < tasksArrayDoing.length; i++) {
-    if (tasksArrayDoing[i].identificacao == id) {
-      removeItemFromArr(tasksArrayDoing, tasksArrayDoing[i]);
-    }
-  }
-}
-if (tasksArrayDone) {
-  for (var i = 0; i < tasksArrayDone.length; i++) {
-    if (tasksArrayDone[i].identificacao == id) {
-      removeItemFromArr(tasksArrayDone, tasksArrayDone[i]);
-    }
-  }
-  saveTasks();
-}
-}
-function removeItemFromArr(arr, item) {
-  var i = arr.indexOf(item);
-  arr.splice(i, 1);
-}*/
 // salva as tarefas no local storage
 function saveTasks() {
   const tasks = document.querySelectorAll('.task');
@@ -332,8 +240,6 @@ function loadTasks() {
       // Index Atual (idx) (o índice atual do elemento sendo processado no array);
       // Array (src) (o array original ao qual a função reduce() foi chamada).
       // O valor retornado da sua função reducer é atribuída ao acumulador. O acumulador, com seu valor atualizado, é repassado para cada iteração subsequente pelo array, que por fim, se tornará o valor resultante, único, final.
-      
-    // Iterate over all tasks and create task elements
     allTasks.forEach(task => {
       const taskElement = createTaskElement(task);
       const panel = document.getElementById(task.status);
