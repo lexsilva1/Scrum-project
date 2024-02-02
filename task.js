@@ -14,8 +14,6 @@ window.onload = function () {
 const todoButton = document.getElementById("todo-button");
 const doingButton = document.getElementById("doing-button");
 const doneButton = document.getElementById("done-button");
-// Remove the existing declaration of lowButton
-// const lowButton = document.getElementById("low-button");
 
 
 // Get the priority buttons

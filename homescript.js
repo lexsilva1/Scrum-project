@@ -76,6 +76,12 @@ function setPriorityButtonSelected(button, priority) {
   button.classList.add("selected");
   sessionStorage.setItem("taskPriority", priority);
 }
+function removeSelectedPriorityButton() {
+  const buttons = [lowButton, mediumButton, highButton];
+  buttons.forEach(btn => btn.classList.remove("selected"));
+}
+
+
 
 // Event listeners for priority buttons
 lowButton.addEventListener("click", () => setPriorityButtonSelected(lowButton, "low"));
@@ -111,6 +117,8 @@ document.getElementById('addTask').addEventListener('click', function() {
       document.getElementById('taskName').value = '';
       document.getElementById('taskDescription').value = '';
       sessionStorage.removeItem("taskPriority");
+      removeSelectedPriorityButton();
+
   }
   saveTasks();
 });
