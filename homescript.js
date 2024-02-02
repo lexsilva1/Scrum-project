@@ -333,10 +333,12 @@ window.onclose = function () { // guarda as tarefas no local storage quando a pa
 }
 const displayTime = document.querySelector(".display-time");
 // Time
-function showTime() { // mostra a hora atual
-  let time = new Date(); // cria um objeto com a data e hora atuais
-  displayTime.innerText = time.toLocaleTimeString("en-US", { hour12: false });// retorna a hora atual no formato de 24 horas
-  setTimeout(showTime, 1000); // chama a funcao showTime a cada segundo
+
+function showTime() {
+  let time = new Date();
+  let timeString = time.toLocaleTimeString("en-US", { hour12: false, hour: '2-digit', minute: '2-digit' });
+  displayTime.innerText = timeString;
+  setTimeout(showTime, 1000);
 }
 
 showTime();

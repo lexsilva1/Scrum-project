@@ -2,21 +2,24 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-body.peach {
-  --blue1: lightcoral;
-  --blue2: coral;
-  --todo-grey: pink;
-  --post-it-bg: lightgrey;
-}
+
 body {
-  --blue1: #21979c;
-  --blue2: #2cccd348;
-  --todo-grey: #c8e4e7;
-  --post-it-bg: grey;
+  --white: #f9f9f9;
+  --light-grey: #c8e4e7;
+  --grey: grey;
+  --green1: #2CCCD3;
+  --green2: #21979c;
+  --green3: #223C4A;
+  --black: #0e1a21;
+  --overlay: #03030348;
+
+  --todo: #CFFDFF;
+  --doing: #9CFAFF;
+  --done: #2CCBD4;
 
   margin: 0;
   padding: 0;
-  background-color: #0e1a21;
+  background-color: var(--black);
   position: relative;
 }
 
@@ -39,14 +42,14 @@ body {
   height: auto;
   z-index: -1;
 }
-/* overlay em verde var(--blue1) para aproximar a cor do video com a palete de cores */
+/* overlay em verde para aproximar a cor do video com a palete de cores */
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--blue2);
+  background: var(--overlay);
 }
 
 /* definicoes do painel de login */
@@ -66,8 +69,10 @@ body {
   padding: 20px;
   font-size: 15px;
   text-align: center;
-  color: #223c4a;
-  background-color: color-mix(in srgb, var(--todo-grey), transparent 20%);
+
+  color: var(--green3);
+  background-color: color-mix(in srgb, var(--light-grey), transparent 20%);
+
   border-radius: 10px;
   height: 360px;
   width: 340px; /* Adjust the width as needed */
@@ -80,7 +85,7 @@ body {
   padding-left: 5px;
   width: 220px;
   height: 25px;
-  border: #223c4a 1px solid;
+  border: var(--green3) 1px solid;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
@@ -90,7 +95,7 @@ body {
   padding-left: 5px;
   width: 220px;
   height: 25px;
-  border: #223c4a 1px solid;
+  border: var(--green3) 1px solid;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
@@ -98,7 +103,7 @@ body {
   color: var(--main-color);
 }
 .loginpanel input[type="text"] {
-  color: #223c4a;
+  color: var(--green3);
 }
 .loginpanel #loginButton {
   text-align: center;
@@ -110,17 +115,17 @@ body {
   font-size: 12px;
   font-weight: bold;
   background-color: var(--main-color);
-  color: #f4f5f7;
+  color: var(--white);
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
 }
 .loginpanel #loginButton:hover {
-  background-color: #223c4a;
-  color: #2cccd3;
+  background-color: var(--green3);
+  color: var(--green1);
 }
 #warningMessage {
-  color: var(--todo-grey);
+  color: var(--light-grey);
   font-size: 12px;
   margin-top: 10px;
 }
@@ -139,7 +144,7 @@ header {
   width: auto;
   height: 80px;
   color: white;
-  background-color: #223c4a;
+  background-color: var(--green3);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -149,10 +154,10 @@ header {
 h1 {
   margin-left: 20px;
   font-size: 20px;
-  color: var(--todo-grey);
+  color: var(--light-grey);
 }
 .username {
-  color: #2cccd3;
+  color: var(--green1);
 }
 
 .username input {
@@ -160,13 +165,13 @@ h1 {
   width: 150px;
 }
 .username #login {
-  color: var(--todo-grey);
+  color: var(--light-grey);
   font-weight: bold;
 }
 .logout-button {
   margin-right: 100px;
-  background-color: #223c4a;
-  color: var(--todo-grey);
+  background-color: var(--green3);
+  color: var(--light-grey);
   border: none;
   padding: 10px 15px;
   cursor: pointer;
@@ -184,19 +189,19 @@ h1 {
 /* Definicoes do link de logout no header (default, ja visitado, ao passar o rato e clicado) */
 .logout-link {
   margin-right: 100px;
-  color: var(--blue1); /* Cor padrão */
+  color: var(--green2); /* Cor padrão */
 }
 
 .logout-link:visited {
-  color: #2cccd3; /* Cor após ser visitado */
+  color: var(--green1); /* Cor após ser visitado */
 }
 
 .logout-link:hover {
-  color: var(--todo-grey); /* Cor ao passar o mouse por cima */
+  color: var(--light-grey); /* Cor ao passar o mouse por cima */
 }
 
 .logout-link:active {
-  color: #f9f9f9 /* Cor para o estado active */;
+  color: var(--white) /* Cor para o estado active */;
 }
 
 /* Definicoes do container que inclui o aside e o main */
@@ -212,32 +217,30 @@ h1 {
 
 /* Definicioes da barra lateral aside*/
 aside {
-  max-width: 240px;
+  max-width: 300px;
   height: 720px;
   float: left;
-  background-color: var(--todo-grey);
+  background-color: var(--light-grey);
   text-align: center;
 }
 
 .logo img {
+  padding-block: 25px;
   max-height: 150px; /* Define a altura máxima do logo */
   width: auto; /* Mantém a proporção */
 }
 aside h3 {
   text-align: center;
-  color: #223c4a;
+  color: var(--green3);
   text-transform: uppercase;
   font-size: 20px;
-  margin-top: 25px;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 #taskName {
   margin-bottom: 10px;
   padding-left: 10px;
-  width: 160px;
+  width: 170px;
   height: 30px;
-  background-color: #f9f9f9;
+  background-color: var(--white);
   font-size: 12px;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
@@ -246,9 +249,9 @@ aside h3 {
   resize: none;
   padding-left: 10px;
   padding-top: 10px;
-  width: 160px;
+  width: 170px;
   height: 200px;
-  background-color: #f9f9f9;
+  background-color: var(--white);
   font-size: 12px;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
@@ -256,7 +259,7 @@ aside h3 {
   line-height: 1.4;
 }
 #taskDescription:not(:focus) {
-  border: #223c4a 2px solid;
+  border: var(--green3) 2px solid;
 }
 #taskDescription::placeholder {
   font-size: 12px;
@@ -265,33 +268,89 @@ aside h3 {
   left: 10px;
   width: 140px;
 }
+.task-buttons-home {
+    display: flex;
+    flex-direction: column;
+  }
+  .priority-buttons-home {
+    justify-content: center;
+    display: flex;
+    gap: 8px; /* Espaçamento entre os botões */
+  }
+  .priority-button-home {
+    --button-shadow-color: #c3c3c3;
+    margin-top: 15px;
+    width: 56px;
+    height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px var(--button-shadow-color);
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    background-color: var(--grey);
+    transition: box-shadow 0.3s ease;
+  
+    &:hover {
+      --button-shadow-color: #808080;
+      transition: box-shadow 0.3s ease;
+    }
+  }
+  .priority-button-home {
+    border-color: var(--black);
+    color: var(--green3);
+  }
+  .priority-button-home.low {
+    --grey: #a8db27;
+  }
+  .priority-button-home.medium {
+    --grey: #ffd549;
+  }
+  .priority-button-home.high {
+    --grey: #ff4a5a;
+  }
+  
+  .priority-button-home:hover {
+    background-color: color-mix(in srgb, var(--grey), white 25%);
+    transition: background-color 0.3s ease;
+  }
+  .priority-button-home.selected {
+    background-color: color-mix(in srgb, var(--grey), white 10%) !important;
+    border-width: 2px !important;
+    border-color: #97A7B0 !important;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.8s ease;
+    transform: translateY(4px);
+  }
 #addTask {
   text-align: center;
-  margin-top: 20px;
-  padding-left: 10px;
-  width: 100px;
+  margin-top: 25px;
+  width: 120px;
   height: 32px;
   text-transform: uppercase;
   font-size: 12px;
   font-weight: bold;
-  background-color: var(--blue1);
-  color: #f4f5f7;
+  background-color: var(--green2);
+  color: var(--white);
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
 }
 #addTask:hover {
-  background-color: #223c4a;
-  color: #2cccd3;
+  background-color: var(--green3);
+  color: var(--green1);
 }
 
 /* Definicoes do painel main, onde estao as seccoes do Scrum (To do, Doing, Done)*/
 main {
-  width: calc(100% - 200px);
+  width: calc(100% - 300px);
   padding-left: 30px;
   padding-right: 30px;
   height: 720px;
-  background-color: #f9f9f9;
+  background-color: var(--white);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -301,7 +360,7 @@ main {
 }
 .main-home {
   text-align: center;
-  color: #223c4a;
+  color: var(--green3);
   text-transform: uppercase;
   font-size: 20px;
   padding-top: 40px;
@@ -316,21 +375,21 @@ main {
   margin-right: 50px;
   margin-left: 50px;
   margin-bottom: 40px;
-  background-color: var(--todo-grey);
-  border: 2px solid #223c4a;
+  background-color: var(--todo);
+  border: 2px solid var(--green3);
   overflow: auto;
 
   scrollbar-width: thin;
-  scrollbar-color: var(--blue1) #f9f9f9;
+  scrollbar-color: var(--green2) var(--white);
 }
 
 #panel2 {
-  background-color: #2ccbd37e;
-  border: 2px solid #223c4a;
+  background-color: var(--doing);
+  border: 2px solid var(--green3);
 }
 #panel3 {
-  background-color: #21989c7e;
-  border: 2px solid #223c4a;
+  background-color: var(--done);
+  border: 2px solid var(--green3);
 }
 /* Estilos para navegadores WebKit (Chrome, Safari) */
 .panel::-webkit-scrollbar {
@@ -338,12 +397,12 @@ main {
 }
 
 .panel::-webkit-scrollbar-thumb {
-  background-color: var(--blue1); /* cor do indicador de rolagem */
+  background-color: var(--green2); /* cor do indicador de rolagem */
   border-top-right-radius: 8px;
 }
 
 .panel::-webkit-scrollbar-track {
-  background-color: #f9f9f9; /* cor da trilha da rolagem */
+  background-color: var(--white); /* cor da trilha da rolagem */
   margin-right: 1px; /* afasta a barra de rolagem do lado direito em 1px */
   border-top-right-radius: 9px;
 }
@@ -358,7 +417,7 @@ main {
   height: 50px; /* tamanho do espaço em que é inserido cada post-it (inclui espaçamento entre post-its) */
   margin-top: 20px;
 
-  background-color: var(--post-it-bg);
+  background-color: var(--grey);
   margin-top: 30px;
   margin-bottom: 30px;
   border-top-right-radius: 10px;
@@ -392,19 +451,19 @@ main {
 }
 
 .task.low {
-  --post-it-bg: #a8db27;
+  --grey: #a8db27;
 }
 .task.medium {
-  --post-it-bg: #ffd549;
+  --grey: #ffd549;
 }
 .task.high {
-  --post-it-bg: #ff4a5a;
+  --grey: #ff4a5a;
 }
 .task.dragging {
   opacity: 0.5;
 }
 .task:hover {
-  background-color: color-mix(in srgb, var(--post-it-bg), white 25%);
+  background-color: color-mix(in srgb, var(--grey), white 25%);
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s ease;
   /*opacity: 0.9;*/
@@ -422,6 +481,7 @@ main {
   backdrop-filter: blur(5px);
   display: none;
   place-items: center;
+  z-index: 1;
 }
 
 .modal-content {
@@ -445,14 +505,14 @@ main {
   font-size: 12px;
   font-weight: bold;
   background-color: #2ccbd37e;
-  color: #223c4a;
+  color: var(--green3);
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
 }
 .modal button:hover {
-  background-color: #223c4a;
-  color: #2cccd3;
+  background-color: var(--green3);
+  color: var(--green1);
 }
 
 .modal p {
@@ -461,23 +521,23 @@ main {
 }
 .display-date {
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: var(--todo-grey);
+  -webkit-box-reflect: below 2px
+  linear-gradient(transparent, rgba(255, 255, 255, 0.05));
+  color: var(--light-grey);
 }
 
 .display-time {
   display: flex;
-  font-size: 1.6rem;
-  font-weight: bold;
-  border: 2px solid var(--blue2);
-  padding: 5px;
-  border-radius: 5px;
+  margin-left: 0px;
+  font-size: 1rem;
+  font-weight: 600;
   transition: ease-in-out 0.1s;
   transition-property: background, box-shadow, color;
   -webkit-box-reflect: below 2px
     linear-gradient(transparent, rgba(255, 255, 255, 0.05));
-  color: var(--todo-grey);
+  color: var(--light-grey);
 }
 
 .post-it h3 {
@@ -531,7 +591,7 @@ div.panel {
   padding-left: 40px;
   font-size: 15px;
   text-align: left;
-  color: #223c4a;
+  color: var(--green3);
 }
 
 /* Media query for smaller screens */
@@ -584,11 +644,11 @@ div.panel {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 500;
-  background-color: var(--todo-grey);
-  color: #223c4a;
+  background-color: var(--light-grey);
+  color: var(--green3);
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  border-color: #223c4a;
+  border-color: var(--green3);
   border-width: 2px;
 }
 
@@ -601,16 +661,16 @@ div.panel {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.4;
-  background-color: var(--todo-grey);
-  color: #223c4a;
+  background-color: var(--light-grey);
+  color: var(--green3);
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  border-color: #223c4a;
+  border-color: var(--green3);
   border-width: 2px;
 }
 .main-task ::placeholder {
   /* placeholder do titulo e descricao para retirar */
-  color: #223c4a;
+  color: var(--green3);
 }
 .task-save {
   justify-content: center;
@@ -626,9 +686,9 @@ div.panel {
 #save-button {
   width: 150px;
   height: 45px;
-  background-color: #0e1a21;
-  color: #f4f5f7;
-  border-color: #0e1a21;
+  background-color: var(--black);
+  color: var(--white);
+  border-color: var(--black);
   padding: 10px;
   text-align: center;
   text-transform: uppercase;
@@ -636,16 +696,16 @@ div.panel {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0px 4px 8px #808080;
+  box-shadow: 0px 4px 8px var(--grey);
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
 }
 #cancel-button {
   width: 150px;
   height: 45px;
-  background-color: var(--todo-grey);
-  color: #0e1a21;
-  border-color: var(--todo-grey);
+  background-color: var(--light-grey);
+  color: var(--black);
+  border-color: var(--light-grey);
   padding: 10px;
   text-align: center;
   text-transform: uppercase;
@@ -653,7 +713,7 @@ div.panel {
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0px 4px 8px #808080;
+  box-shadow: 0px 4px 8px var(--grey);
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
 }
@@ -663,8 +723,8 @@ div.panel {
   margin-top: 90px;
   width: 520px;
   height: 393px;
-  background-color: color-mix(in srgb, var(--todo-grey), transparent 41%);
-  border: 2px solid #223c4a;
+  background-color: color-mix(in srgb, var(--light-grey), transparent 41%);
+  border: 2px solid var(--green3);
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
 }
@@ -681,7 +741,7 @@ div.panel {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-size: 20px;
-  color: #223c4a;
+  color: var(--green3);
 }
 /* comentário da pica */
 
@@ -708,7 +768,7 @@ div.panel {
   box-shadow: 0px 4px 8px var(--button-shadow-color);
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
-  background-color: var(--post-it-bg);
+  background-color: var(--grey);
   transition: box-shadow 0.3s ease;
 
   &:hover {
@@ -716,73 +776,67 @@ div.panel {
     transition: box-shadow 0.3s ease;
   }
 }
-#todo-button {
-  background-color: var(--todo-grey);
-  border-color: #0e1a21;
-  color: #223c4a;
-}
-#todo-button:hover {
-  background-color: #a6c9cc;
-  border-color: #0e1a21;
-  color: #223c4a;
-}
 
-#doing-button {
-  background-color: #2ccbd37e;
-  border-color: #0e1a21;
-  color: #223c4a;
+.status-button {
+  border-color: var(--black);
+  color: var(--green3);
 }
-#doing-button:hover {
-  background-color: #2ccbd3bb;
-  border-color: #0e1a21;
-  color: #223c4a;
+.status-button.todo {
+  --grey: var(--todo);
 }
-
-#done-button {
-  background-color: #21989c7e;
-  border-color: #0e1a21;
-  color: #223c4a;
+.status-button.doing {
+  --grey: var(--doing);
 }
-#done-button:hover {
-  background-color: #21989cbb;
-  border-color: #0e1a21;
-  color: #223c4a;
+.status-button.done {
+  --grey: var(--done);
 }
-
-.priority-button {
-  border-color: #0e1a21;
-  color: #223c4a;
-}
-.priority-button.low {
-  --post-it-bg: #a8db27;
-}
-.priority-button.medium {
-  --post-it-bg: #ffd549;
-}
-.priority-button.high {
-  --post-it-bg: #ff4a5a;
-}
-
-.priority-button:hover {
-  background-color: color-mix(in srgb, var(--post-it-bg), white 25%);
+.status-button:hover {
+  background-color: color-mix(in srgb, var(--grey), var(--black) 25%);
   transition: background-color 0.3s ease;
 }
 
-.status-button.selected,
+.priority-button {
+  border-color: var(--black);
+  color: var(--green3);
+}
+.priority-button.low {
+  --grey: #a8db27;
+}
+.priority-button.medium {
+  --grey: #ffd549;
+}
+.priority-button.high {
+  --grey: #ff4a5a;
+}
+.priority-button:hover {
+  background-color: color-mix(in srgb, var(--grey), white 25%);
+  transition: background-color 0.3s ease;
+}
+
+.status-button.selected {
+    background-color: color-mix(in srgb, var(--green3), grey 10%) !important;
+    border-width: 2px !important;
+    border-color: #97A7B0 !important;
+    color: #8AD6FF !important;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.8s ease;
+    transform: translateY(4px);
+  }
 .priority-button.selected {
-  background-color: color-mix(in srgb, var(--post-it-bg), grey 30%) !important;
+  background-color: color-mix(in srgb, var(--grey), white 10%) !important;
   border-width: 2px !important;
-  border-color: #2cccd3 !important;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease;
+  border-color: #97A7B0 !important;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.8s ease;
+  transform: translateY(4px);
 }
 
 /* Definicoes do footer*/
 footer {
   width: auto;
   padding: 20px 0;
-  background-color: #0e1a21;
-  color: var(--todo-grey);
+  background-color: var(--black);
+  color: var(--light-grey);
   text-align: center;
 }
 
