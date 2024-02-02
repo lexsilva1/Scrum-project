@@ -17,23 +17,6 @@ function attachDragAndDropListeners(task) { // Adiciona os listeners de drag and
       task.classList.remove('dragging')
   });
 }
-// codigo para o drag and drop das tasks hardcoded. vai sair pro projecto final
-tasks.forEach(task => {
-  task.addEventListener('dragstart', () => {
-    task.classList.add('dragging');
-  });
-
-  task.addEventListener('dragend', () => {
-    task.classList.remove('dragging');
-  });
-
-  const deleteButton = task.querySelector('.apagarButton');
-  deleteButton.addEventListener('click', function () {
-    task.remove();
-  });
-});
-
-
 
 panels.forEach(panel => { // Adiciona os listeners de drag and drop a um painel
   panel.addEventListener('dragover', e => {
