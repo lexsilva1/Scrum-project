@@ -138,8 +138,3 @@ savebutton.addEventListener("click", () => {
     sessionStorage.removeItem("taskPriority");
     window.location.href = 'home.html';
 });
-
-
-
-
-
