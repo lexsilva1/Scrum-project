@@ -2,6 +2,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
 body {
   --white: #f9f9f9;
   --light-grey: #c8e4e7;
@@ -68,8 +69,10 @@ body {
   padding: 20px;
   font-size: 15px;
   text-align: center;
+
   color: var(--green3);
   background-color: color-mix(in srgb, var(--light-grey), transparent 20%);
+
   border-radius: 10px;
   height: 360px;
   width: 340px; /* Adjust the width as needed */
