@@ -690,7 +690,7 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   flex-direction: column;
   gap: 20px;
 }
-.task-buttons #taskH4 {
+.task-buttons .taskH4 {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
