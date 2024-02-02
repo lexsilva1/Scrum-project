@@ -12,9 +12,9 @@ body {
   --black: #0e1a21;
   --overlay: #223c4aab;
 
-  --todo: #CFFDFF;
-  --doing: #9CFAFF;
-  --done: #2CCBD4;
+  --todo: #cffdffd7;
+  --doing: #9cfaffd5;
+  --done: #2cccd4d7;
 
   margin: 0;
   padding: 0;
@@ -100,7 +100,7 @@ body {
   text-transform: uppercase;
   font-size: 12px;
   font-weight: bold;
-  background-color: var(--green1);
+  background-color: var(--doing);
   color: var(--green3);
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
@@ -180,7 +180,7 @@ h1 {
 /* Logout button */
 .logout-button {
   margin-right: 100px;
-  background-color: var(--green3);
+  background-color: var(--done);
   color: var(--light-grey);
   border: none;
   padding: 10px 15px;
@@ -296,7 +296,8 @@ aside h3 {
     --grey: #ffd549;
   }
   .priority-button-home.high {
-    --grey: #ff4a5a;
+    --grey: #FF3232;
+    color: color-mix(in srgb, var(--white), var(--white) 95%);
   }  
   .priority-button-home:hover {
     background-color: color-mix(in srgb, var(--grey), white 25%);
@@ -319,8 +320,8 @@ aside h3 {
   text-transform: uppercase;
   font-size: 12px;
   font-weight: bold;
-  background-color: var(--green2);
-  color: var(--white);
+  background-color: var(--done);
+  color: var(--green3);
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
@@ -469,7 +470,8 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   --grey: #ffd549;
 }
 .task.high {
-  --grey: #ff4a5a;
+  --grey: #FF3232;
+  color: color-mix(in srgb, var(--white), var(--white) 95%);
 }
 /* Expansão de cada task para mostrar description e cruz de apagar */
 /* Dimensão da janela do post-it totalmente expandida*/
@@ -554,7 +556,7 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   text-transform: uppercase;
   font-size: 12px;
   font-weight: bold;
-  background-color: #2ccbd37e;
+  background-color: var(--done);
   color: var(--green3);
   border-radius: 5px;
   transition: background-color 0.3s, color 0.3s;
@@ -605,13 +607,50 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   align-items: center;
   text-align: center;
 }
+/* Definições do breadcrumb */
+.breadcrumb {
+  margin-left: 75px;
+  background-color: var(--white);
+  text-align: left;
+  color: var(--green3);
+  font-size: 14px;  
+  padding: 10px;
+}
+.breadcrumb ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.breadcrumb li {
+  display: inline;
+  margin-right: 5px;
+}
+.breadcrumb li::after {
+  content: " >";
+  margin-left: 5px;
+  color: var(--green3);
+}
+.breadcrumb li:last-child::after {
+  content: none;
+}
+.breadcrumb a {
+  text-decoration: underline;
+  color: var(--green3);
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+  color: var(--green1);
+}
+#task-bc {
+  text-transform: uppercase;
+}
 .main-task #titulo-task,
 .main-task #descricao-task {
   margin-left: 80px;
   width: 500px;
   padding: 20px;
   resize: none;
-  background-color: var(--light-grey);
+  background-color: color-mix(in srgb, var(--todo), transparent 75%);
   color: var(--green3);
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
@@ -620,7 +659,7 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   font-family: Arial, Helvetica, sans-serif;
 }
 .main-task #titulo-task {
-  margin-top: 50px;
+  margin-top: 14px;
   margin-bottom: 20px;
   height: 25px;
   text-transform: uppercase;
@@ -663,18 +702,24 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
 }
+#save-button:hover,
+#cancel-button:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.8s ease;
+  transform: translateY(4px);
+}
 #save-button {
   background-color: var(--black);
-  color: var(--white);
-  border-color: var(--black);
+  color: var(--green1);
+  border-color: var(--todo);
 }
 #cancel-button {
-  background-color: var(--light-grey);
+  background-color: var(--todo);
   color: var(--black);
-  border-color: var(--light-grey);
+  border-color: var(--black);
 }
 #warningMessage3 {
-  color: #ff4a4a;
+  color: #FF3232;
   font-size: 16px;
   font-weight: bold;
   margin-top: 25px;
@@ -688,7 +733,7 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   margin-top: 90px;
   width: 520px;
   height: 393px;
-  background-color: color-mix(in srgb, var(--light-grey), transparent 41%);
+  background-color: color-mix(in srgb, var(--todo), transparent 75%);
   border: 2px solid var(--green3);
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
@@ -768,7 +813,8 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   --grey: #ffd549;
 }
 .priority-button.high {
-  --grey: #ff4a5a;
+  --grey: #FF3232;
+  color: color-mix(in srgb, var(--white), var(--white) 95%);
 }
 .priority-button:hover {
   background-color: color-mix(in srgb, var(--grey), white 25%);
@@ -794,21 +840,22 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
 /* Definicoes do footer*/
 footer {
   width: auto;
-  padding: 20px 0;
+  padding-block: 20px;
   background-color: var(--black);
   color: var(--light-grey);
   text-align: center;
 }
 .footer-content {
-  padding-top: 20px;
+  padding-block: 20px;
   font-size: 17px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 120px;
-  row-gap: 15px;
+  column-gap: 80px;
+  row-gap: 12px;
 }
 .label-left {
-  text-align: right;
+  padding-left: 700px;
+  text-align: left;
 }
 .label-right {
   text-align: left;
