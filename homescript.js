@@ -67,14 +67,14 @@ panels.forEach(panel => { // Adiciona os listeners de drag and drop a um painel
 const lowButton = document.getElementById("low-button-home");
 const mediumButton = document.getElementById("medium-button-home");
 const highButton = document.getElementById("high-button-home");
-
+let taskPriority;
 
 
 function setPriorityButtonSelected(button, priority) {
   const buttons = [lowButton, mediumButton, highButton];
   buttons.forEach(btn => btn.classList.remove("selected"));
   button.classList.add("selected");
-  sessionStorage.setItem("taskPriority", priority);
+  taskPriority = priority;
 }
 function removeSelectedPriorityButton() {
   const buttons = [lowButton, mediumButton, highButton];
@@ -103,7 +103,7 @@ function getDragAfterElement(panel, y) {
 document.getElementById('addTask').addEventListener('click', function() {
   var Description = taskDescription.value.trim();
   var Name = taskName.value.trim();
-  var priority = sessionStorage.getItem("taskPriority");
+  var priority = taskPriority;
   if (Name === '' || Description === '' || priority === null) {
     document.getElementById('warningMessage2').innerText = 'Por favor preencha todos os campos.';
   } else {
