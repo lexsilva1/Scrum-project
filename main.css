@@ -383,11 +383,11 @@ main {
   scrollbar-color: var(--green2) var(--white);
 }
 
-#panel2 {
+#doing {
   background-color: var(--doing);
   border: 2px solid var(--green3);
 }
-#panel3 {
+#done {
   background-color: var(--done);
   border: 2px solid var(--green3);
 }

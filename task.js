@@ -67,7 +67,6 @@ lowButton.addEventListener("click", () => setPriorityButtonSelected(lowButton, "
 mediumButton.addEventListener("click", () => setPriorityButtonSelected(mediumButton, "medium"));
 highButton.addEventListener("click", () => setPriorityButtonSelected(highButton, "high"));
 
-
 const cancelbutton = document.getElementById("cancel-button");
 cancelbutton.addEventListener("click", () => {
     // Open the cancel modal
