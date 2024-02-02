@@ -62,6 +62,26 @@ panels.forEach(panel => { // Adiciona os listeners de drag and drop a um painel
     }
   })
 })
+
+// Get the priority buttons
+const lowButton = document.getElementById("low-button-home");
+const mediumButton = document.getElementById("medium-button-home");
+const highButton = document.getElementById("high-button-home");
+
+
+
+function setPriorityButtonSelected(button, priority) {
+  const buttons = [lowButton, mediumButton, highButton];
+  buttons.forEach(btn => btn.classList.remove("selected"));
+  button.classList.add("selected");
+  sessionStorage.setItem("taskPriority", priority);
+}
+
+// Event listeners for priority buttons
+lowButton.addEventListener("click", () => setPriorityButtonSelected(lowButton, "low"));
+mediumButton.addEventListener("click", () => setPriorityButtonSelected(mediumButton, "medium"));
+highButton.addEventListener("click", () => setPriorityButtonSelected(highButton, "high"));
+
 function getDragAfterElement(panel, y) {
     const draggableElements = [...panel.querySelectorAll('.task:not(.dragging)')] // dentro da lista de paineis, seleciona todos os elementos com a classe task que nao tenham a classe dragging  
 
@@ -78,8 +98,9 @@ function getDragAfterElement(panel, y) {
 document.getElementById('addTask').addEventListener('click', function() {
   var Description = taskDescription.value.trim();
   var Name = taskName.value.trim();
+  var priority = sessionStorage.getItem("taskPriority");
   if (Name.trim() !== '' && Description.trim() !== ''){
-      const task = createTask(Name, Description);
+      const task = createTask(Name, Description, priority);
       const taskElement =createTaskElement(task);
      document.getElementById('todo').appendChild(taskElement);
 
@@ -89,17 +110,18 @@ document.getElementById('addTask').addEventListener('click', function() {
       // Clear input fields after adding task
       document.getElementById('taskName').value = '';
       document.getElementById('taskDescription').value = '';
+      sessionStorage.removeItem("taskPriority");
   }
   saveTasks();
 });
 
-function createTask(name, description) {  // Cria uma tarefa com o nome e descrição passados como argumento 
+function createTask(name, description, priority) {  // Cria uma tarefa com o nome e descrição passados como argumento 
   const task = {
   title :name,
   description: description,
   identificacao: 'task-' + Date.now(),
   status: 'todo',
-  priority: 'low'
+  priority: priority
   }
   return task;
 }
