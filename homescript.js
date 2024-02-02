@@ -105,7 +105,7 @@ document.getElementById('addTask').addEventListener('click', function() {
   var Name = taskName.value.trim();
   var priority = taskPriority;
   if (Name === '' || Description === '' || priority === null) {
-    document.getElementById('warningMessage2').innerText = 'Por favor preencha todos os campos.';
+    document.getElementById('warningMessage2').innerText = 'Fill in all fields and define a priority';
   } else {
     document.getElementById('warningMessage2').innerText = '';
   }
