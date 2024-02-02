@@ -117,7 +117,7 @@ savebutton.addEventListener("click", () => {
     var taskPriority = sessionStorage.getItem("taskPriority");
     
     if (taskDescription === "" || taskTitle === "") {
-        document.getElementById('warningMessage3').innerText = 'Fill in your the tasks Title and Description';
+        document.getElementById('warningMessage3').innerText = 'Your task must have a title and a description';
             return;
     } else {
         // limpa mendagem de erro
