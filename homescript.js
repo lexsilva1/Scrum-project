@@ -121,6 +121,7 @@ document.getElementById('addTask').addEventListener('click', function() {
       document.getElementById('taskName').value = '';
       document.getElementById('taskDescription').value = '';
       removeSelectedPriorityButton();
+      taskPriority = null;
 
   }
   saveTasks();

@@ -1,19 +1,20 @@
 window.onload = function () {
-    var username = sessionStorage.getItem("login");
-    var descricao = sessionStorage.getItem("taskDescription");
-    var titulo = sessionStorage.getItem("taskTitle");
+    var username = sessionStorage.getItem("login"); // Get the username from the session storage
+    var descricao = sessionStorage.getItem("taskDescription"); // Get the description from the session storage
+    var titulo = sessionStorage.getItem("taskTitle"); // Get the title from the session storage
     if (username) {
-      document.getElementById("login").textContent = username;
-      document.getElementById('titulo-task').textContent = titulo;
-      document.getElementById('descricao-task').textContent=descricao;
+      document.getElementById("login").textContent = username; // Set the username in the navbar
+      document.getElementById('titulo-task').textContent = titulo; // Set the title in the input
+      document.getElementById('descricao-task').textContent=descricao; // Set the description in the input
+      document.getElementById('tasktitle').innerHTML = titulo; // Set the title in the task title
     }
 };
 
 
 // Get the status buttons
-const todoButton = document.getElementById("todo-button");
-const doingButton = document.getElementById("doing-button");
-const doneButton = document.getElementById("done-button");
+const todoButton = document.getElementById("todo-button"); // Get the todo button
+const doingButton = document.getElementById("doing-button"); // Get the doing button
+const doneButton = document.getElementById("done-button"); // Get the done button
 
 
 // Get the priority buttons
@@ -31,6 +32,7 @@ doingButton.classList.add("selected");
 doneButton.classList.add("selected");
 }
 
+// Set the low-button as the default selected button
 var taskPriority = sessionStorage.getItem("taskPriority");
 if(taskPriority == "low"){
     lowButton.classList.add("selected");
@@ -77,6 +79,7 @@ cancelbutton.addEventListener("click", () => {
         window.location.href = 'task.html';
     });
 
+    // Event listener for the confirm button
     const confirmButton = document.getElementById("confirm-cancel-button");
     confirmButton.addEventListener("click", () => {
         sessionStorage.removeItem("taskDescription");
@@ -89,6 +92,21 @@ cancelbutton.addEventListener("click", () => {
     cancelModal.style.display = "grid";
 });
 
+// Function to update the tasks
+const updateTasks = (tasks, taskid, taskStatus, taskDescription, taskTitle, taskPriority) => {
+    tasks.forEach(category => {
+        category.forEach(task => {
+            if (task.identificacao === taskid) {
+                task.title = taskTitle;
+                task.description = taskDescription;
+                task.status = taskStatus;
+                task.priority = taskPriority;
+            }
+        });
+    });
+};
+
+// Event listener for the save button
 const savebutton = document.getElementById("save-button");
 savebutton.addEventListener("click", () => {
     var tasks = JSON.parse(localStorage.getItem("tasks"));
@@ -97,38 +115,16 @@ savebutton.addEventListener("click", () => {
     var taskDescription = document.getElementById("descricao-task").value.trim();
     var taskTitle = document.getElementById("titulo-task").value.trim();
     var taskPriority = sessionStorage.getItem("taskPriority");
-    if(taskDescription == "" || taskTitle == ""){
-        alert("Por favor preencha todos os campos");
-        return;
+    
+    if (taskDescription === "" || taskTitle === "") {
+        document.getElementById('warningMessage3').innerText = 'Fill in your the tasks Title and Description';
+            return;
+    } else {
+        // limpa mendagem de erro
+        document.getElementById('warningMessage3').innerText = '';
     }
    
-    tasks[0].forEach(task => {
-        if(task.identificacao == taskid){
-            task.title = taskTitle;
-            task.description = taskDescription;
-            task.status = taskStatus;
-            task.priority = taskPriority;
-        }
-    });
-
-    tasks[1].forEach(task => {
-        if(task.identificacao == taskid){
-            task.title = taskTitle;
-            task.description = taskDescription;
-            task.status = taskStatus;
-            task.priority = taskPriority;
-        }
-    });
-
-    tasks[2].forEach(task => {
-        if(task.identificacao == taskid){
-            task.title = taskTitle;
-            task.description = taskDescription;
-            task.status = taskStatus;
-            task.priority = taskPriority;
-        }
-    });
-
+    updateTasks(tasks, taskid, taskStatus, taskDescription, taskTitle, taskPriority);
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
     sessionStorage.removeItem("taskDescription");
