@@ -120,7 +120,6 @@ document.getElementById('addTask').addEventListener('click', function() {
       // Clear input fields after adding task
       document.getElementById('taskName').value = '';
       document.getElementById('taskDescription').value = '';
-      sessionStorage.removeItem("taskPriority");
       removeSelectedPriorityButton();
 
   }
