@@ -67,51 +67,6 @@ lowButton.addEventListener("click", () => setPriorityButtonSelected(lowButton, "
 mediumButton.addEventListener("click", () => setPriorityButtonSelected(mediumButton, "medium"));
 highButton.addEventListener("click", () => setPriorityButtonSelected(highButton, "high"));
 
-
-/*// Add event listeners to the status buttons
-todoButton.addEventListener("click", () => {
-    todoButton.classList.add("selected");
-    doingButton.classList.remove("selected");
-    doneButton.classList.remove("selected");
-    sessionStorage.setItem("taskStatus", "todo");
-});
-
-doingButton.addEventListener("click", () => {
-    todoButton.classList.remove("selected");
-    doingButton.classList.add("selected");
-    doneButton.classList.remove("selected");
-    sessionStorage.setItem("taskStatus", "doing");
-});
-
-doneButton.addEventListener("click", () => {
-    todoButton.classList.remove("selected");
-    doingButton.classList.remove("selected");
-    doneButton.classList.add("selected");
-    sessionStorage.setItem("taskStatus", "done");
-});
-
-// Add event listeners to the priority buttons
-lowButton.addEventListener("click", () => {
-    lowButton.classList.add("selected");
-    mediumButton.classList.remove("selected");
-    highButton.classList.remove("selected");
-    sessionStorage.setItem("taskPriority", "low");
-});
-
-mediumButton.addEventListener("click", () => {
-    lowButton.classList.remove("selected");
-    mediumButton.classList.add("selected");
-    highButton.classList.remove("selected");
-    sessionStorage.setItem("taskPriority", "medium");
-});
-
-highButton.addEventListener("click", () => {
-    lowButton.classList.remove("selected");
-    mediumButton.classList.remove("selected");
-    highButton.classList.add("selected");
-    sessionStorage.setItem("taskPriority", "high");
-});*/
-
 const cancelbutton = document.getElementById("cancel-button");
 cancelbutton.addEventListener("click", () => {
     // Open the cancel modal
