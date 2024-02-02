@@ -2,7 +2,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
 body {
   --white: #f9f9f9;
   --light-grey: #c8e4e7;
@@ -11,7 +10,7 @@ body {
   --green2: #21979c;
   --green3: #223C4A;
   --black: #0e1a21;
-  --overlay: #03030348;
+  --overlay: #223c4aab;
 
   --todo: #CFFDFF;
   --doing: #9CFAFF;
@@ -30,7 +29,6 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-
 #background-video {
   position: absolute;
   top: 50%;
@@ -42,7 +40,7 @@ body {
   height: auto;
   z-index: -1;
 }
-/* overlay em verde para aproximar a cor do video com a palete de cores */
+/* overlay com verde (com alguma transparência) para aproximar a cor do video com a palete de cores */
 .overlay {
   position: absolute;
   top: 0;
@@ -63,33 +61,18 @@ body {
   opacity: 0; /* Inicia com opacidade zero para a animação fadeIn */
   animation: fadeIn 1s ease-in-out 0.5s forwards; /* Adiciona nova animação para fadeIn após 3 segundos */
 }
-
 .loginpanel {
   z-index: 3;
   padding: 20px;
   font-size: 15px;
   text-align: center;
-
   color: var(--green3);
-  background-color: color-mix(in srgb, var(--light-grey), transparent 20%);
-
+  background-color: color-mix(in srgb, var(--light-grey), transparent 10%);
   border-radius: 10px;
-  height: 360px;
-  width: 340px; /* Adjust the width as needed */
-  margin-top: 20px; /* Adjust as needed */
+  height: 380px;
+  width: 330px;
 }
-
-#login {
-  margin-bottom: 15px;
-  margin-top: 20px;
-  padding-left: 5px;
-  width: 220px;
-  height: 25px;
-  border: var(--green3) 1px solid;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-}
-
+#login,
 #password {
   margin-bottom: 15px;
   padding-left: 5px;
@@ -98,6 +81,9 @@ body {
   border: var(--green3) 1px solid;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
+}
+#login {
+  margin-top: 20px;
 }
 .loginpanel ::placeholder {
   color: var(--green2);
@@ -125,12 +111,10 @@ body {
   color: var(--green1);
 }
 #warningMessage {
-  color: var(--light-grey);
-  font-size: 12px;
-  margin-top: 10px;
+  color: var(--green3);
+  font-size: 14px;
+  margin-top: 17px;
 }
-
-
 /* Animacao fade in para o container de login */
 @keyframes fadeIn {
   from {
@@ -141,6 +125,7 @@ body {
   }
 }
 
+/* Definicões do header na página home.html*/
 header {
   width: auto;
   height: 80px;
@@ -151,16 +136,39 @@ header {
   align-items: center;
   padding: 0 20px;
 }
-
+/* Título Welcome to Scrum */
 h1 {
   margin-left: 20px;
   font-size: 20px;
   color: var(--light-grey);
 }
+/* Definições do relógio */
+.container.clock {
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.display-date,
+.display-time {
+  font-size: 1rem;
+  font-weight: 600;
+  -webkit-box-reflect: below 2px
+  linear-gradient(transparent, rgba(255, 255, 255, 0.05));
+  color: var(--light-grey);
+}
+.display-date {
+  text-align: center;
+}
+.display-time {
+  display: flex;
+  margin-left: 0px;
+  transition: ease-in-out 0.1s;
+  transition-property: background, box-shadow, color;
+}
+/* Username */
 .username {
   color: var(--green1);
 }
-
 .username input {
   padding: 5px;
   width: 150px;
@@ -169,6 +177,7 @@ h1 {
   color: var(--light-grey);
   font-weight: bold;
 }
+/* Logout button */
 .logout-button {
   margin-right: 100px;
   background-color: var(--green3);
@@ -180,42 +189,22 @@ h1 {
   align-items: center;
   font-size: 15px;
 }
-
 .logout-button img {
   width: 18px;
   height: 19px;
   margin-right: 8px;
 }
-
-/* Definicoes do link de logout no header (default, ja visitado, ao passar o rato e clicado) */
+/* Definicoes do link de logout no header (default, os outros não são utilizados) */
 .logout-link {
   margin-right: 100px;
   color: var(--green2); /* Cor padrão */
 }
 
-.logout-link:visited {
-  color: var(--green1); /* Cor após ser visitado */
-}
-
-.logout-link:hover {
-  color: var(--light-grey); /* Cor ao passar o mouse por cima */
-}
-
-.logout-link:active {
-  color: var(--white) /* Cor para o estado active */;
-}
-
-/* Definicoes do container que inclui o aside e o main */
+/* Definicoes do container que inclui o aside e o main da página home.html */
 .container {
   display: flex;
   justify-content: space-between;
 }
-.container.clock {
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
 /* Definicioes da barra lateral aside*/
 aside {
   max-width: 300px;
@@ -224,41 +213,41 @@ aside {
   background-color: var(--light-grey);
   text-align: center;
 }
-
+/* Logo */
 .logo img {
   padding-block: 25px;
   max-height: 150px; /* Define a altura máxima do logo */
   width: auto; /* Mantém a proporção */
 }
+/* Título */
 aside h3 {
   text-align: center;
   color: var(--green3);
   text-transform: uppercase;
   font-size: 20px;
 }
-#taskName {
-  margin-bottom: 10px;
-  padding-left: 10px;
-  width: 170px;
-  height: 30px;
-  background-color: var(--white);
-  font-size: 12px;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-}
+/* Campos para adicionar task */
+#taskName,
 #taskDescription {
-  resize: none;
   padding-left: 10px;
-  padding-top: 10px;
   width: 170px;
-  height: 200px;
   background-color: var(--white);
   font-size: 12px;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   font-family: Arial, Helvetica, sans-serif;
+}  
+#taskName {
+  margin-bottom: 10px;
+  height: 30px;
+}
+#taskDescription {
+  resize: none;
+  padding-top: 10px;
+  height: 200px;
   line-height: 1.4;
 }
+/* Quando a task description não está selecionada mantém a border */
 #taskDescription:not(:focus) {
   border: var(--green3) 2px solid;
 }
@@ -269,6 +258,7 @@ aside h3 {
   left: 10px;
   width: 140px;
 }
+/* botões de priority no home.html*/
 .task-buttons-home {
     display: flex;
     flex-direction: column;
@@ -294,11 +284,6 @@ aside h3 {
     border-top-left-radius: 8px;
     background-color: var(--grey);
     transition: box-shadow 0.3s ease;
-  
-    &:hover {
-      --button-shadow-color: #808080;
-      transition: box-shadow 0.3s ease;
-    }
   }
   .priority-button-home {
     border-color: var(--black);
@@ -312,8 +297,7 @@ aside h3 {
   }
   .priority-button-home.high {
     --grey: #ff4a5a;
-  }
-  
+  }  
   .priority-button-home:hover {
     background-color: color-mix(in srgb, var(--grey), white 25%);
     transition: background-color 0.3s ease;
@@ -326,6 +310,7 @@ aside h3 {
     transition: box-shadow 0.8s ease;
     transform: translateY(4px);
   }
+/* botão add task*/
 #addTask {
   text-align: center;
   margin-top: 25px;
@@ -344,14 +329,16 @@ aside h3 {
   background-color: var(--green3);
   color: var(--green1);
 }
+/* mensagem de erro por não preenchimento de 1 dos 2 campos, ou do botão de priority */
 #warningMessage2 {
   color: var(--green3);
-  font-size: 12px;
-  margin-top: 10px;
+  font-size: 14px;
+  margin-top: 17px;
   text-align: center;
 }
 
 /* Definicoes do painel main, onde estao as seccoes do Scrum (To do, Doing, Done)*/
+/* Definições gerais de ambos os main (home.html e task.html)*/
 main {
   width: calc(100% - 300px);
   padding-left: 30px;
@@ -362,6 +349,7 @@ main {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+/* Definições do main home.html*/
 .titulo-main {
   flex: 1;
 }
@@ -373,6 +361,7 @@ main {
   padding-top: 40px;
   padding-bottom: 10px;
 }
+/* Definições gerais dos painéis To do, Doing e Done*/
 .panel {
   flex: 1;
   height: 500px;
@@ -382,52 +371,57 @@ main {
   margin-right: 50px;
   margin-left: 50px;
   margin-bottom: 40px;
-  background-color: var(--todo);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
   border: 2px solid var(--green3);
   overflow: auto;
-
+  /* Estilos da scroll bar */
   scrollbar-width: thin;
   scrollbar-color: var(--green2) var(--white);
 }
-
+/* Cor de fundo de cada painel */
+#todo {
+  background-color: var(--todo);
+}
 #doing {
   background-color: var(--doing);
-  border: 2px solid var(--green3);
 }
 #done {
   background-color: var(--done);
-  border: 2px solid var(--green3);
 }
-/* Estilos para navegadores WebKit (Chrome, Safari) */
+/* Estilos da scroll bar (painéis da home.html e da task no task.html) */
+/* Tamanho da barra */
 .panel::-webkit-scrollbar,
 .text-task::-webkit-scrollbar {
   width: 13px; /* largura da barra de rolagem */
 }
-
+/* Cor da barra */
 .panel::-webkit-scrollbar-thumb,
 .text-task::-webkit-scrollbar-thumb {
   background-color: var(--green2); /* cor do indicador de rolagem */
   border-top-right-radius: 8px;
 }
-
+/* Distância à direita a que a barra fica da border, cor do trilho e arredondamento para fazer
+match ao arredondamento do painel (home.html) e da task description (task.html) */
 .panel::-webkit-scrollbar-track,
 .text-task::-webkit-scrollbar-track {
-  background-color: var(--white); /* cor da trilha da rolagem */
-  margin-right: 1px; /* afasta a barra de rolagem do lado direito em 1px */
+  margin-right: 1px;
+  background-color: var(--white);
   border-top-right-radius: 9px;
 }
+/* Altura da scroll bar */
 .panel::-webkit-scrollbar,
 .text-task::-webkit-scrollbar {
-  height: calc(100% - 2px); /* altura da barra de rolagem */
+  height: calc(100% - 2px);
   padding-right: 1px;
 }
-
+/* Definições das tasks no home.html*/
 .task {
   position: relative;
   width: 190px;
   height: 50px; /* tamanho do espaço em que é inserido cada post-it (inclui espaçamento entre post-its) */
   margin-top: 20px;
-
   background-color: var(--grey);
   margin-top: 30px;
   margin-bottom: 30px;
@@ -437,30 +431,37 @@ main {
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 }
-.task .apagarButton {
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-}
-.task:hover .apagarButton {
-  opacity: 1;
-  transition: all 0.5s ease-in-out;
-}
-.task:hover {
-  height: 190px;
-  transition: all 0.5s ease-in-out;
-}
-
+/* Esconde o texto da description*/
 .post-it-text {
   max-height: 0;
   transition: all 0.5s ease;
   overflow: hidden;
 }
-
-.task:hover .post-it-text {
-  max-height: 190px;
-  transition: all 0.5s ease;
+/* Definições do conteúdo de cada post-it */
+.post-it {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: left;
 }
-
+.post-it h3 {
+  font-size: 15px;
+  text-transform: uppercase;
+  padding-left: 13px;
+}
+.post-it p {
+  font-size: 0.825rem;
+  padding-inline: 13px;
+  overflow: hidden;
+  opacity: 1;
+  display: -webkit-box; /* Define o display como flexível */
+  -webkit-line-clamp: 6; /* número de linhas que o texto vai mostrar */
+  -webkit-box-orient: vertical;
+  margin: 0;
+}
+/* Cores dos post-it de acordo com a prioridade */
 .task.low {
   --grey: #a8db27;
 }
@@ -470,6 +471,18 @@ main {
 .task.high {
   --grey: #ff4a5a;
 }
+/* Expansão de cada task para mostrar description e cruz de apagar */
+/* Dimensão da janela do post-it totalmente expandida*/
+.task:hover {
+  height: 190px;
+  transition: all 0.5s ease-in-out;
+}
+/* Faz o texto do post-it aparecer*/
+.task:hover .post-it-text {
+  max-height: 190px;
+  transition: all 0.5s ease;
+}
+/* Dragging de cada tarefa */
 .task.dragging {
   opacity: 0.5;
 }
@@ -479,6 +492,33 @@ main {
   transition: box-shadow 0.3s ease;
   /*opacity: 0.9;*/
 }
+/* Definições da cruz que apaga a task */
+/* Não mostra na mini-janela do post-it*/
+.task .apagarButton {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+/* Mostra na mini-janela do post-it*/
+.task:hover .apagarButton {
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+/* Posição do botão apagar */
+.apagarButton {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  max-width: 17px;
+  aspect-ratio: 1;
+  cursor: pointer;
+  transition: ease-on 0.01s;
+}
+/* Animacao do botão apagar */
+.apagarButton:hover {
+  rotate: 360deg;
+  transition: ease 0.01s;
+}
+/* Modal para confirmações - apagar tarefa no home.html, cancelar as alterações no task.html*/
 .modal {
   bottom: 0;
   height: 100%;
@@ -494,7 +534,6 @@ main {
   place-items: center;
   z-index: 1;
 }
-
 .modal-content {
   padding: 2rem 3rem;
   background-color: white;
@@ -525,92 +564,15 @@ main {
   background-color: var(--green3);
   color: var(--green1);
 }
-
 .modal p {
-  text-align: center; /* Center the paragraph */
+  text-align: center;
   grid-column: 1 / 3;
 }
-.display-date {
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 600;
-  -webkit-box-reflect: below 2px
-  linear-gradient(transparent, rgba(255, 255, 255, 0.05));
-  color: var(--light-grey);
-}
-
-.display-time {
-  display: flex;
-  margin-left: 0px;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: ease-in-out 0.1s;
-  transition-property: background, box-shadow, color;
-  -webkit-box-reflect: below 2px
-    linear-gradient(transparent, rgba(255, 255, 255, 0.05));
-  color: var(--light-grey);
-}
-
-.post-it h3 {
-  text-align: left;
-  font-size: 15px;
-  text-transform: uppercase;
-  padding-left: 13px;
-}
-.post-it {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-.post-it p {
-  text-align: left;
-  font-size: 0.825rem;
-  padding-inline: 13px;
-  overflow: hidden;
-  opacity: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-  margin: 0;
-}
-
-.apagarButton {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  max-width: 17px;
-  aspect-ratio: 1;
-  cursor: pointer;
-  transition: ease-on 0.01s;
-}
-.apagarButton:hover {
-  rotate: 360deg;
-  transition: ease 0.01s;
-}
-
-h2 {
-  text-align: center;
-  margin: 0;
-  font-size: 20px;
-  text-transform: uppercase;
-}
-div.panel {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 40px;
-  font-size: 15px;
-  text-align: left;
-  color: var(--green3);
-}
-
-/* Media query for smaller screens */
+/* Media para ecrãs pequenos */
 @media (max-width: 768px) {
   main {
     flex-direction: column;
   }
-
   .panel {
     flex: none;
     width: calc(100% - 100px);
@@ -618,22 +580,24 @@ div.panel {
   }
 }
 
+/* Definições do main na task.html*/
 .main-task {
   width: auto;
   margin: auto;
   display: flex;
   justify-content: flex-start;
-  background-image: url("multimedia/background_main_task.png"); /* Substitua pelo caminho da sua imagem */
-  background-size: cover; /* Ajusta o tamanho da imagem para cobrir toda a div */
-  background-position: center; /* Centraliza a imagem na div */
-  background-repeat: no-repeat; /* Evita a repetição da imagem */
+  background-image: url("multimedia/background_main_task.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-/* Media query for smaller screens */
+/* Media para ecrãs pequenos */
 @media (max-width: 768px) {
   .main-task {
     flex-direction: column;
   }
 }
+/* Definições da task */
 .detalhes-task {
   margin-top: 40px;
   margin-right: 30px;
@@ -641,51 +605,38 @@ div.panel {
   align-items: center;
   text-align: center;
 }
-
+.main-task #titulo-task,
+.main-task #descricao-task {
+  margin-left: 80px;
+  width: 500px;
+  padding: 20px;
+  resize: none;
+  background-color: var(--light-grey);
+  color: var(--green3);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-color: var(--green3);
+  border-width: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 .main-task #titulo-task {
   margin-top: 50px;
   margin-bottom: 20px;
-  width: 500px;
   height: 25px;
-  padding: 20px;
-  resize: none;
-  margin-left: 80px;
   text-transform: uppercase;
   letter-spacing: 1.2px;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 500;
-  background-color: var(--light-grey);
-  color: var(--green3);
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  border-color: var(--green3);
-  border-width: 2px;
 }
-
 .main-task #descricao-task {
-  margin-left: 80px;
-  resize: none;
-  width: 500px;
   height: 260px;
-  padding: 20px;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.4;
-  background-color: var(--light-grey);
-  color: var(--green3);
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  border-color: var(--green3);
-  border-width: 2px;
-}
-.main-task ::placeholder {
-  /* placeholder do titulo e descricao para retirar */
-  color: var(--green3);
 }
 .text-task {
   scrollbar-color: var(--green2) var(--white);
 }
+/* Definições dos botões save e cancel */
 .task-save {
   justify-content: center;
   margin-left: 80px;
@@ -697,29 +648,10 @@ div.panel {
   font-weight: bold;
   cursor: pointer;
 }
-#save-button {
-  width: 150px;
-  height: 45px;
-  background-color: var(--black);
-  color: var(--white);
-  border-color: var(--black);
-  padding: 10px;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0px 4px 8px var(--grey);
-  border-top-right-radius: 8px;
-  border-top-left-radius: 8px;
-}
+#save-button,
 #cancel-button {
   width: 150px;
   height: 45px;
-  background-color: var(--light-grey);
-  color: var(--black);
-  border-color: var(--light-grey);
   padding: 10px;
   text-align: center;
   text-transform: uppercase;
@@ -731,7 +663,18 @@ div.panel {
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
 }
+#save-button {
+  background-color: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+#cancel-button {
+  background-color: var(--light-grey);
+  color: var(--black);
+  border-color: var(--light-grey);
+}
 
+/* Definições gerais de status e priority*/
 .status-and-priority {
   margin-left: 100px;
   margin-top: 90px;
@@ -745,7 +688,7 @@ div.panel {
 .task-buttons {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Espaçamento entre as colunas */
+  gap: 20px;
 }
 .task-buttons #taskH4 {
   text-align: center;
@@ -757,16 +700,13 @@ div.panel {
   font-size: 20px;
   color: var(--green3);
 }
-/* comentário da pica */
-
+/* Definições dos botões de status e priority */
 .task-status .status-buttons,
 .task-priority .priority-buttons {
   justify-content: center;
-  padding-left: 40px;
   display: flex;
-  gap: 40px; /* Espaçamento entre os botões */
+  gap: 40px;
 }
-
 .status-button,
 .priority-button {
   --button-shadow-color: #c3c3c3;
@@ -784,13 +724,13 @@ div.panel {
   border-top-left-radius: 8px;
   background-color: var(--grey);
   transition: box-shadow 0.3s ease;
-
-  &:hover {
-    --button-shadow-color: #808080;
-    transition: box-shadow 0.3s ease;
-  }
 }
-
+.status-button:hover,
+.priority-button:hover {
+  --button-shadow-color: #808080;
+  transition: box-shadow 0.3s ease;
+}
+/* Definições dos botões de status*/
 .status-button {
   border-color: var(--black);
   color: var(--green3);
@@ -808,7 +748,7 @@ div.panel {
   background-color: color-mix(in srgb, var(--grey), var(--black) 25%);
   transition: background-color 0.3s ease;
 }
-
+/* Definições dos botões de priority */
 .priority-button {
   border-color: var(--black);
   color: var(--green3);
@@ -826,22 +766,21 @@ div.panel {
   background-color: color-mix(in srgb, var(--grey), white 25%);
   transition: background-color 0.3s ease;
 }
-
-.status-button.selected {
-    background-color: color-mix(in srgb, var(--green3), white 10%) !important;
-    border-width: 2px !important;
-    border-color: #97A7B0 !important;
-    color: #8AD6FF !important;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
-    transition: box-shadow 0.8s ease;
-    transform: translateY(4px);
-  }
+/* Definições dos botões de status e priority quando selecionados*/
+.status-button.selected, 
 .priority-button.selected {
-  background-color: color-mix(in srgb, var(--grey), white 30%) !important;
   border-color: #97A7B0 !important;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
   transition: box-shadow 0.8s ease;
   transform: translateY(4px);
+}
+.status-button.selected {
+    background-color: color-mix(in srgb, var(--green3), white 10%) !important;
+    border-width: 2px !important;
+    color: #8AD6FF !important;
+}
+.priority-button.selected {
+  background-color: color-mix(in srgb, var(--grey), white 30%) !important;
 }
 
 /* Definicoes do footer*/
@@ -852,14 +791,13 @@ footer {
   color: var(--light-grey);
   text-align: center;
 }
-
 .footer-content {
   padding-top: 20px;
   font-size: 17px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 120px; /* Espaçamento entre as labels, ajuste conforme necessário */
-  row-gap: 15px; /* Espaçamento entre as linhas, ajuste conforme necessário */
+  column-gap: 120px;
+  row-gap: 15px;
 }
 .label-left {
   text-align: right;
@@ -868,8 +806,26 @@ footer {
   text-align: left;
 }
 
+
 /* Divisoes da pagina home e task */
 @media (max-width: 1024px) {
+  body {
+    background-color: #cccccc;
+  }
+  header,
+  footer {
+    width: 100%;
+  }
+  aside {
+    width: 100%;
+    float: none;
+  }
+  main {
+    width: 100%;
+    margin: 0;
+  }
+}
+@media (min-width: 768px) {
   body {
     background-color: #cccccc;
   }
@@ -887,25 +843,5 @@ footer {
   main {
     width: 100%;
     margin: 0;
-  }
-  @media (min-width: 768px) {
-    body {
-      background-color: #cccccc;
-    }
-
-    header,
-    footer {
-      width: 100%;
-    }
-
-    aside {
-      width: 100%;
-      float: none;
-    }
-
-    main {
-      width: 100%;
-      margin: 0;
-    }
   }
 }
