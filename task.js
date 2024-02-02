@@ -25,11 +25,11 @@ const highButton = document.getElementById("high-button");
 
 // Set the todo-button as the default selected button
 var taskStatus = sessionStorage.getItem("taskStatus");
-if(taskStatus == "panel1"){
+if(taskStatus == "todo"){
 todoButton.classList.add("selected");
-} else if( taskStatus== "panel2"){
+} else if( taskStatus== "doing"){
 doingButton.classList.add("selected");
-} else if(taskStatus == "panel3"){
+} else if(taskStatus == "done"){
 doneButton.classList.add("selected");
 }
 
@@ -41,27 +41,53 @@ if(taskPriority == "low"){
 } else if(taskPriority == "high"){
     highButton.classList.add("selected");
 }
+// Function to set the selected state for status buttons
+function setStatusButtonSelected(button, status) {
+    const buttons = [todoButton, doingButton, doneButton];
+    buttons.forEach(btn => btn.classList.remove("selected"));
+    button.classList.add("selected");
+    sessionStorage.setItem("taskStatus", status);
+}
 
-// Add event listeners to the status buttons
+// Function to set the selected state for priority buttons
+function setPriorityButtonSelected(button, priority) {
+    const buttons = [lowButton, mediumButton, highButton];
+    buttons.forEach(btn => btn.classList.remove("selected"));
+    button.classList.add("selected");
+    sessionStorage.setItem("taskPriority", priority);
+}
+
+// Event listeners for status buttons
+todoButton.addEventListener("click", () => setStatusButtonSelected(todoButton, "todo"));
+doingButton.addEventListener("click", () => setStatusButtonSelected(doingButton, "doing"));
+doneButton.addEventListener("click", () => setStatusButtonSelected(doneButton, "done"));
+
+// Event listeners for priority buttons
+lowButton.addEventListener("click", () => setPriorityButtonSelected(lowButton, "low"));
+mediumButton.addEventListener("click", () => setPriorityButtonSelected(mediumButton, "medium"));
+highButton.addEventListener("click", () => setPriorityButtonSelected(highButton, "high"));
+
+
+/*// Add event listeners to the status buttons
 todoButton.addEventListener("click", () => {
     todoButton.classList.add("selected");
     doingButton.classList.remove("selected");
     doneButton.classList.remove("selected");
-    sessionStorage.setItem("taskStatus", "panel1");
+    sessionStorage.setItem("taskStatus", "todo");
 });
 
 doingButton.addEventListener("click", () => {
     todoButton.classList.remove("selected");
     doingButton.classList.add("selected");
     doneButton.classList.remove("selected");
-    sessionStorage.setItem("taskStatus", "panel2");
+    sessionStorage.setItem("taskStatus", "doing");
 });
 
 doneButton.addEventListener("click", () => {
     todoButton.classList.remove("selected");
     doingButton.classList.remove("selected");
     doneButton.classList.add("selected");
-    sessionStorage.setItem("taskStatus", "panel3");
+    sessionStorage.setItem("taskStatus", "done");
 });
 
 // Add event listeners to the priority buttons
@@ -84,7 +110,7 @@ highButton.addEventListener("click", () => {
     mediumButton.classList.remove("selected");
     highButton.classList.add("selected");
     sessionStorage.setItem("taskPriority", "high");
-});
+});*/
 
 const cancelbutton = document.getElementById("cancel-button");
 cancelbutton.addEventListener("click", () => {
