@@ -336,12 +336,6 @@ aside h3 {
   margin-top: 17px;
   text-align: center;
 }
-#warningMessage3 {
-  color: var(--green3);
-  font-size: 14px;
-  margin-top: 17px;
-  text-align: center;
-}
 
 /* Definicoes do painel main, onde estao as seccoes do Scrum (To do, Doing, Done)*/
 /* Definições gerais de ambos os main (home.html e task.html)*/
@@ -646,7 +640,7 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
 .task-save {
   justify-content: center;
   margin-left: 80px;
-  margin-top: 60px;
+  margin-top: 50px;
   display: flex;
   gap: 30px;
   text-transform: uppercase;
@@ -679,6 +673,14 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   color: var(--black);
   border-color: var(--light-grey);
 }
+#warningMessage3 {
+  color: #ff4a4a;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-left: 80px;
+  text-align: center;
+}
 
 /* Definições gerais de status e priority*/
 .status-and-priority {
@@ -696,7 +698,7 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   flex-direction: column;
   gap: 20px;
 }
-.task-buttons #taskH4 {
+.task-buttons .taskH4 {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
