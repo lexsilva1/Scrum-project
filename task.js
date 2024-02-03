@@ -1,29 +1,29 @@
 window.onload = function () {
-    var username = sessionStorage.getItem("login"); // Get the username from the session storage
-    var descricao = sessionStorage.getItem("taskDescription"); // Get the description from the session storage
-    var titulo = sessionStorage.getItem("taskTitle"); // Get the title from the session storage
+    var username = sessionStorage.getItem("login"); // Obter o user da session storage
+    var descricao = sessionStorage.getItem("taskDescription"); // Obter a descrição da session storage
+    var titulo = sessionStorage.getItem("taskTitle"); // Obter o título da session storage
     if (username) {
-        document.getElementById("login").textContent = username; // Set the username in the navbar
-        document.getElementById('titulo-task').textContent = titulo; // Set the title in the input
-        document.getElementById('descricao-task').textContent = descricao; // Set the description in the input
-        document.getElementById('tasktitle').innerHTML = titulo; // Set the title in the task title
-        document.getElementById("task-bc").textContent = titulo; // Set the title in the breadcrumb
+        document.getElementById("login").textContent = username; // Colocar o user no header
+        document.getElementById('titulo-task').textContent = titulo; // Colocar o título no input title
+        document.getElementById('descricao-task').textContent = descricao; // Colocar a descrição na text area
+        document.getElementById('tasktitle').innerHTML = titulo; // Colocar o título no título da página
+        document.getElementById("task-bc").textContent = titulo; // Colocar o título no breadcrumb
     }
 };
 
 
-// Get the status buttons
-const todoButton = document.getElementById("todo-button"); // Get the todo button
-const doingButton = document.getElementById("doing-button"); // Get the doing button
-const doneButton = document.getElementById("done-button"); // Get the done button
+// Definir os botões de status
+const todoButton = document.getElementById("todo-button"); // Atribuir o elemento respetivo à variável todoButton
+const doingButton = document.getElementById("doing-button"); // Atribuir o elemento respetivo à variável doingButton
+const doneButton = document.getElementById("done-button"); // Atribuir o elemento respetivo à variável doneButton
 
 
-// Get the priority buttons
+// Definir os botões de priority
 const lowButton = document.getElementById("low-button");
 const mediumButton = document.getElementById("medium-button");
 const highButton = document.getElementById("high-button");
 
-// Set the todo-button as the default selected button
+// Definir o botão To Do como default
 var taskStatus = sessionStorage.getItem("taskStatus");
 if(taskStatus == "todo"){
 todoButton.classList.add("selected");
@@ -33,7 +33,7 @@ doingButton.classList.add("selected");
 doneButton.classList.add("selected");
 }
 
-// Set the low-button as the default selected button
+// Definir o botão Low como default
 var taskPriority = sessionStorage.getItem("taskPriority");
 if(taskPriority == "low"){
     lowButton.classList.add("selected");
@@ -42,7 +42,7 @@ if(taskPriority == "low"){
 } else if(taskPriority == "high"){
     highButton.classList.add("selected");
 }
-// Function to set the selected state for status buttons
+// Função para definir o estado no grupo de botões status
 function setStatusButtonSelected(button, status) {
     const buttons = [todoButton, doingButton, doneButton];
     buttons.forEach(btn => btn.classList.remove("selected"));
@@ -50,7 +50,7 @@ function setStatusButtonSelected(button, status) {
     sessionStorage.setItem("taskStatus", status);
 }
 
-// Function to set the selected state for priority buttons
+// Função para definir o estado no grupo de botões priority
 function setPriorityButtonSelected(button, priority) {
     const buttons = [lowButton, mediumButton, highButton];
     buttons.forEach(btn => btn.classList.remove("selected"));
@@ -58,19 +58,19 @@ function setPriorityButtonSelected(button, priority) {
     sessionStorage.setItem("taskPriority", priority);
 }
 
-// Event listeners for status buttons
+// Event listeners para os botões status
 todoButton.addEventListener("click", () => setStatusButtonSelected(todoButton, "todo"));
 doingButton.addEventListener("click", () => setStatusButtonSelected(doingButton, "doing"));
 doneButton.addEventListener("click", () => setStatusButtonSelected(doneButton, "done"));
 
-// Event listeners for priority buttons
+// Event listeners para os botões priority
 lowButton.addEventListener("click", () => setPriorityButtonSelected(lowButton, "low"));
 mediumButton.addEventListener("click", () => setPriorityButtonSelected(mediumButton, "medium"));
 highButton.addEventListener("click", () => setPriorityButtonSelected(highButton, "high"));
 
 const cancelbutton = document.getElementById("cancel-button");
 cancelbutton.addEventListener("click", () => {
-    // Open the cancel modal
+    // Abrir o modal de cancel
     const cancelModal = document.getElementById("cancel-modal");
     cancelModal.style.display = "block";
 
@@ -80,7 +80,7 @@ cancelbutton.addEventListener("click", () => {
         window.location.href = 'task.html';
     });
 
-    // Event listener for the confirm button
+    // Event listener para o botão de confirmação
     const confirmButton = document.getElementById("confirm-cancel-button");
     confirmButton.addEventListener("click", () => {
         sessionStorage.removeItem("taskDescription");
@@ -93,7 +93,7 @@ cancelbutton.addEventListener("click", () => {
     cancelModal.style.display = "grid";
 });
 
-// Function to update the tasks
+// Função para update das tasks
 const updateTasks = (tasks, taskid, taskStatus, taskDescription, taskTitle, taskPriority) => {
     tasks.forEach(category => {
         category.forEach(task => {
@@ -107,7 +107,7 @@ const updateTasks = (tasks, taskid, taskStatus, taskDescription, taskTitle, task
     });
 };
 
-// Event listener for the save button
+// Event listener para o botão save
 const savebutton = document.getElementById("save-button");
 savebutton.addEventListener("click", () => {
     var tasks = JSON.parse(localStorage.getItem("tasks"));
@@ -121,7 +121,7 @@ savebutton.addEventListener("click", () => {
         document.getElementById('warningMessage3').innerText = 'Your task must have a title and a description';
             return;
     } else {
-        // limpa mensagem de erro
+        // Limpa mensagem de erro
         document.getElementById('warningMessage3').innerText = '';
     }
    

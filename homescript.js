@@ -23,13 +23,13 @@ panels.forEach(panel => { // Adiciona os listeners de drag and drop a um painel
     e.preventDefault()
     const afterElement = getDragAfterElement(panel, e.clientY)
     const task = document.querySelector('.dragging')
-    const panelID = document.getElementById(panel.id) // guarda o id do painel onde a tarefa vai ser colocada
+    const panelID = document.getElementById(panel.id) // Guarda o ID do painel onde a tarefa vai ser colocada
     if (afterElement == null) {
       panel.appendChild(task)
       task.status = panel.id;
-      for (var i = 0; i < tasks.length; i++) { // percorre o array de tarefas e altera o status da tarefa para o painel onde foi colocada
+      for (var i = 0; i < tasks.length; i++) { // Percorre o array de tarefas e altera o status da tarefa para o painel onde foi colocada
         if (tasks[i].id == task.id) {
-          tasks[i].status = panelID; // actualiza o status da tarefa
+          tasks[i].status = panelID; // Atualiza o status da tarefa
         }
       }
       saveTasks();
@@ -41,12 +41,12 @@ panels.forEach(panel => { // Adiciona os listeners de drag and drop a um painel
           tasks[i].status = panelID;
         }
       }
-      saveTasks(); // guarda as alteracoes no local storage
+      saveTasks(); // Guarda as alterações na local storage
     }
   })
 })
 
-// Get the priority buttons
+// Definir os botões de priority
 const lowButton = document.getElementById("low-button-home");
 const mediumButton = document.getElementById("medium-button-home");
 const highButton = document.getElementById("high-button-home");
@@ -66,24 +66,24 @@ function removeSelectedPriorityButton() {
 
 
 
-// Event listeners for priority buttons
+// Event listeners para os botões priority
 lowButton.addEventListener("click", () => setPriorityButtonSelected(lowButton, "low"));
 mediumButton.addEventListener("click", () => setPriorityButtonSelected(mediumButton, "medium"));
 highButton.addEventListener("click", () => setPriorityButtonSelected(highButton, "high"));
 
 function getDragAfterElement(panel, y) {
-    const draggableElements = [...panel.querySelectorAll('.task:not(.dragging)')] // dentro da lista de paineis, seleciona todos os elementos com a classe task que nao tenham a classe dragging  
-    return draggableElements.reduce((closest, child) => {// retorna o elemento mais proximo do elemento que esta a ser arrastado e que esta a ser comparado
-        const box = child.getBoundingClientRect() // retorna o tamanho do elemento e a sua posicao relativa ao viewport
-        const offset = y - box.top - box.height / 2// calcula a distancia entre o elemento que esta a ser arrastado e o elemento que esta a ser comparado
-        if (offset < 0 && offset > closest.offset) {// se a distancia for menor que 0 e maior que a distancia do elemento mais proximo ate agora
+    const draggableElements = [...panel.querySelectorAll('.task:not(.dragging)')] // Dentro da lista de painéis, seleciona todos os elementos com a classe task que nao tenham a classe dragging  
+    return draggableElements.reduce((closest, child) => { // Retorna o elemento mais próximo do que esáa a ser arrastado e que está a ser comparado
+        const box = child.getBoundingClientRect() // Retorna o tamanho do elemento e a sua posição relativamente ao viewport
+        const offset = y - box.top - box.height / 2 // Calcula a distância entre o elemento que está a ser arrastado e o que está a ser comparado
+        if (offset < 0 && offset > closest.offset) { // Se a distância for menor que 0 e maior que a distância do elemento mais próximo até agora
             return { offset: offset, element: child }
         } else { //
-            return closest // retorna o elemento mais proximo ate agora
+            return closest // Retorna o elemento mais próximo até agora
         }
     }, { offset: Number.NEGATIVE_INFINITY }).element} 
 
-  // add task button event listener to create a new task and append it to the todo panel 
+  // Event listener do botão add task para criar uma nova task e colocá-la no painel To Do (default para qualquer task criada)
 document.getElementById('addTask').addEventListener('click', function() {
   var Description = taskDescription.value.trim();
   var Name = taskName.value.trim();
@@ -98,10 +98,10 @@ document.getElementById('addTask').addEventListener('click', function() {
       const taskElement =createTaskElement(task);
      document.getElementById('todo').appendChild(taskElement);
 
-      // Attach drag and drop listeners to the dynamically created task
+      // Adicionar os listeners drag and drop à task criada de forma dinâmica
       attachDragAndDropListeners(taskElement);
 
-      // Clear input fields after adding task
+      // Limpar os input fields depois de adicionar a task
       document.getElementById('taskName').value = '';
       document.getElementById('taskDescription').value = '';
       removeSelectedPriorityButton();
@@ -111,7 +111,7 @@ document.getElementById('addTask').addEventListener('click', function() {
   saveTasks();
 });
 
-function createTask(name, description, priority) {  // Cria uma tarefa com o nome e descrição passados como argumento 
+function createTask(name, description, priority) { // Cria uma tarefa com o nome, a descrição e a priority passados como argumentos 
   const task = {
   title :name,
   description: description,
@@ -183,7 +183,7 @@ function createTaskElement(task) {
     return taskElement;
 }
 
-// salva as tarefas no local storage
+// Guarda as tasks na local storage
 function saveTasks() {
   const tasks = document.querySelectorAll('.task');
   const taskArrays = {
@@ -201,29 +201,29 @@ function saveTasks() {
       priority: task.priority
     };
 
-    // Determine the status of the task and push it to the corresponding array
+    // Determina o status de cada task e coloca-a no array correspondente
     taskArrays[task.status].push(taskData);
   });
 
-  // Combine all task arrays into a single array
+  // Combina todos os arrays de tasks num único array
   const tasksArray = [taskArrays.todo, taskArrays.doing, taskArrays.done];
 
-  // Save the combined task array to localStorage
+  // Guarda o array global de tasks na local storage
   localStorage.setItem('tasks', JSON.stringify(tasksArray));
 }
-// carrrega as tarefas guardadas no local storage
+// Carrega as tarefas guardadas na local storage
 function loadTasks() {
   const tasksArray = JSON.parse(localStorage.getItem('tasks'));
 
-  if (tasksArray) { // Check if tasksArray is not null
-    // Define an array to store all task arrays
-    const allTasks = tasksArray.reduce((acc, curr) => acc.concat(curr), []);// concatena todos os arrays de tarefas num unico array
-      // a função reduce() executa uma função reducer (fornecida por você) para cada elemento do array, resultando num único valor de retorno. a função reducer é alimentada por quatro parâmetros:
+  if (tasksArray) { // Verifica se o tasksArray não é null
+    // Define um array para guardar todos os arrays de tasks
+    const allTasks = tasksArray.reduce((acc, curr) => acc.concat(curr), []);// Concatena todos os arrays de tarefas num único array
+      // A função reduce() executa uma função reducer para cada elemento do array, o que resulta num único valor de retorno. A função reducer é alimentada por quatro parâmetros:
       // Acumulador (acc) (valor inicial igual ao primeiro valor do array, ou valor do parâmetro initialValue);
       // Valor Atual (cur) (o valor do elemento atual);
-      // Index Atual (idx) (o índice atual do elemento sendo processado no array);
-      // Array (src) (o array original ao qual a função reduce() foi chamada).
-      // O valor retornado da sua função reducer é atribuída ao acumulador. O acumulador, com seu valor atualizado, é repassado para cada iteração subsequente pelo array, que por fim, se tornará o valor resultante, único, final.
+      // Index Atual (idx) (o índice atual do elemento que está a ser processado no array);
+      // Array (src) (o array original para o qual a função reduce() foi chamada).
+      // O valor retornado da função reducer é atribuída ao acumulador. O acumulador, com o seu valor atualizado, passa para cada iteração subsequente pelo array, que por fim, se tornará o valor resultante, único, final.
     allTasks.forEach(task => {
       const taskElement = createTaskElement(task);
       const panel = document.getElementById(task.status);
@@ -236,23 +236,23 @@ function loadTasks() {
 function deleteTask(id) {
   const tasksArray = JSON.parse(localStorage.getItem('tasks'));
 
-  // Iterate over all task arrays to find and remove the task
+  // Iteração sobre todos os arrays de tasks para encontrar e remover a task
   tasksArray.forEach(taskArray => {
-    const index = taskArray.findIndex(task => task.identificacao === id);// retorna o index da tarefa com o id passado como argumento
-    if (index !== -1) { // se o index for diferente de -1
-      taskArray.splice(index, 1); // remove a tarefa do array
-      const taskElement = document.getElementById(id); // guarda o elemento da tarefa
-      taskElement.remove(); // remove o elemento da tarefa
+    const index = taskArray.findIndex(task => task.identificacao === id); // Retorna o index da tarefa com o ID passado como argumento
+    if (index !== -1) { // Se o index for diferente de -1
+      taskArray.splice(index, 1); // Remove a tarefa do array
+      const taskElement = document.getElementById(id); // Guarda o elemento da tarefa
+      taskElement.remove(); // Remove o elemento da tarefa
     }
     saveTasks();
   });
 }
 
-window.onclose = function () { // guarda as tarefas no local storage quando a pagina e fechada
+window.onclose = function () { // Guarda as tarefas na local storage quando a página é fechada
   saveTasks();
 }
+ // Elemento html onde vai ser mostrada a hora
 const displayTime = document.querySelector(".display-time");
-// Time
 
 function showTime() {
   let time = new Date();
@@ -263,11 +263,10 @@ function showTime() {
 
 showTime();
 
-// Date
-function updateDate() { // mostra a data atual
+// Data
+function updateDate() { // Mostra a data atual
   let today = new Date();
 
-  // return number
   let dayName = today.getDay(), // 0 - 6
     dayNum = today.getDate(), // 1 - 31
     month = today.getMonth(), // 0 - 11
@@ -296,12 +295,12 @@ function updateDate() { // mostra a data atual
     "Friday",
     "Saturday",
   ];
-  // value -> ID of the html element
-  const IDCollection = ["day", "daynum", "month", "year"]; // array com os ids dos elementos html que vao mostrar a data
-  // return value array with number as a index
-  const val = [dayWeek[dayName], dayNum, months[month], year]; // array com os valores que vao ser mostrados nos elementos html
-  for (let i = 0; i < IDCollection.length; i++) { // percorre o array de ids
-    document.getElementById(IDCollection[i]).firstChild.nodeValue = val[i]; // altera o valor do elemento html com o id correspondente
+  // Valor -> ID do elemento html
+  const IDCollection = ["day", "daynum", "month", "year"]; // Array com os IDs dos elementos html que vão mostrar a data
+  // Retornar um array com números como índices
+  const val = [dayWeek[dayName], dayNum, months[month], year]; // Array com os valores que vão ser mostrados nos elementos html
+  for (let i = 0; i < IDCollection.length; i++) { // Percorre o array de IDs
+    document.getElementById(IDCollection[i]).firstChild.nodeValue = val[i]; // Altera o valor do elemento html com o ID correspondente
   }
 }
 
