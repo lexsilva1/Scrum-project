@@ -83,6 +83,7 @@ function getDragAfterElement(panel, y) {
         }
     }, { offset: Number.NEGATIVE_INFINITY }).element} 
 
+  // add task button event listener to create a new task and append it to the todo panel 
 document.getElementById('addTask').addEventListener('click', function() {
   var Description = taskDescription.value.trim();
   var Name = taskName.value.trim();
