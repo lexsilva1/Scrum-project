@@ -181,7 +181,7 @@ h1 {
 .logout-button {
   margin-right: 100px;
   background-color: var(--green3);
-  color: var(--green1);
+  color: var(--light-grey);
   border: none;
   padding: 10px 15px;
   cursor: pointer;
