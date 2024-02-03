@@ -3,10 +3,11 @@ window.onload = function () {
     var descricao = sessionStorage.getItem("taskDescription"); // Get the description from the session storage
     var titulo = sessionStorage.getItem("taskTitle"); // Get the title from the session storage
     if (username) {
-      document.getElementById("login").textContent = username; // Set the username in the navbar
-      document.getElementById('titulo-task').textContent = titulo; // Set the title in the input
-      document.getElementById('descricao-task').textContent=descricao; // Set the description in the input
-      document.getElementById('tasktitle').innerHTML = titulo; // Set the title in the task title
+        document.getElementById("login").textContent = username; // Set the username in the navbar
+        document.getElementById('titulo-task').textContent = titulo; // Set the title in the input
+        document.getElementById('descricao-task').textContent = descricao; // Set the description in the input
+        document.getElementById('tasktitle').innerHTML = titulo; // Set the title in the task title
+        document.getElementById("task-bc").textContent = titulo; // Set the title in the breadcrumb
     }
 };
 
@@ -120,7 +121,7 @@ savebutton.addEventListener("click", () => {
         document.getElementById('warningMessage3').innerText = 'Your task must have a title and a description';
             return;
     } else {
-        // limpa mendagem de erro
+        // limpa mensagem de erro
         document.getElementById('warningMessage3').innerText = '';
     }
    
