@@ -180,19 +180,24 @@ h1 {
 /* Logout button */
 .logout-button {
   margin-right: 100px;
-  background-color: var(--done);
-  color: var(--light-grey);
+  background-color: var(--green3);
+  color: var(--green1);
   border: none;
   padding: 10px 15px;
   cursor: pointer;
   display: flex;
   align-items: center;
   font-size: 15px;
+  border-radius: 5px;
 }
 .logout-button img {
   width: 18px;
   height: 19px;
   margin-right: 8px;
+}
+.logout-button:hover {
+  background-color: var(--light-grey);
+  color: var(--green1);
 }
 /* Definicoes do link de logout no header (default, os outros não são utilizados) */
 .logout-link {
