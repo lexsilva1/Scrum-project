@@ -195,15 +195,19 @@ h1 {
   height: 19px;
   margin-right: 8px;
 }
-.logout-button:hover {
-  background-color: var(--light-grey);
-  color: var(--green1);
-}
-/* Definicoes do link de logout no header (default, os outros não são utilizados) */
+/* Definicoes do link de logout no header (default e hover) */
 .logout-link {
   margin-right: 100px;
-  color: var(--green2); /* Cor padrão */
+  color: var(--green2);
 }
+.logout-button:hover {
+  background-color: var(--light-grey);
+  color: var(--green2);
+}
+.logout-button:hover img {
+  content: url("multimedia/logout_hover.png");
+}
+
 
 /* Definicoes do container que inclui o aside e o main da página home.html */
 .container {
