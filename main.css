@@ -22,7 +22,7 @@ body {
   position: relative;
 }
 
-/* video em background da página index (página inicial e de login) */
+/* Video em background da página index (página index.html) */
 .video-container {
   z-index: 0;
   position: relative;
@@ -40,7 +40,7 @@ body {
   height: auto;
   z-index: -1;
 }
-/* overlay com verde (com alguma transparência) para aproximar a cor do video com a palete de cores */
+/* Overlay para aproximar a cor do vídeo com a palete de cores */
 .overlay {
   position: absolute;
   top: 0;
@@ -50,7 +50,7 @@ body {
   background: var(--overlay);
 }
 
-/* definicoes do painel de login */
+/* Definições do painel de login */
 .center-container {
   z-index: 2;
   display: flex;
@@ -58,8 +58,8 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  opacity: 0; /* Inicia com opacidade zero para a animação fadeIn */
-  animation: fadeIn 1s ease-in-out 0.5s forwards; /* Adiciona nova animação para fadeIn após 3 segundos */
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out 0.5s forwards;
 }
 .loginpanel {
   z-index: 3;
@@ -115,7 +115,7 @@ body {
   font-size: 14px;
   margin-top: 17px;
 }
-/* Animacao fade in para o container de login */
+/* Animação fade in para o container de login */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -125,7 +125,7 @@ body {
   }
 }
 
-/* Definicões do header na página home.html*/
+/* Definições do header na página home.html */
 header {
   width: auto;
   height: 80px;
@@ -195,7 +195,7 @@ h1 {
   height: 19px;
   margin-right: 8px;
 }
-/* Definicoes do link de logout no header (default e hover) */
+/* Definições do link de logout no header (default e hover) */
 .logout-link {
   margin-right: 100px;
   color: var(--green2);
@@ -209,12 +209,12 @@ h1 {
 }
 
 
-/* Definicoes do container que inclui o aside e o main da página home.html */
+/* Definições do container que inclui o aside e o main da página home.html */
 .container {
   display: flex;
   justify-content: space-between;
 }
-/* Definicioes da barra lateral aside*/
+/* Definições da barra lateral aside */
 aside {
   max-width: 300px;
   height: 720px;
@@ -225,8 +225,8 @@ aside {
 /* Logo */
 .logo img {
   padding-block: 25px;
-  max-height: 150px; /* Define a altura máxima do logo */
-  width: auto; /* Mantém a proporção */
+  max-height: 150px;
+  width: auto;
 }
 /* Título */
 aside h3 {
@@ -267,7 +267,7 @@ aside h3 {
   left: 10px;
   width: 140px;
 }
-/* botões de priority no home.html*/
+/* Botões de priority no home.html */
 .task-buttons-home {
     display: flex;
     flex-direction: column;
@@ -275,7 +275,7 @@ aside h3 {
   .priority-buttons-home {
     justify-content: center;
     display: flex;
-    gap: 8px; /* Espaçamento entre os botões */
+    gap: 8px;
   }
   .priority-button-home {
     --button-shadow-color: #c3c3c3;
@@ -320,7 +320,7 @@ aside h3 {
     transition: box-shadow 0.8s ease;
     transform: translateY(4px);
   }
-/* botão add task*/
+/* Botão add task */
 #addTask {
   text-align: center;
   margin-top: 25px;
@@ -339,7 +339,7 @@ aside h3 {
   background-color: var(--green3);
   color: var(--green1);
 }
-/* mensagem de erro por não preenchimento de 1 dos 2 campos, ou do botão de priority */
+/* Mensagem de erro por não preenchimento de 1 dos 2 campos, ou do botão de priority */
 #warningMessage2 {
   color: var(--green3);
   font-size: 14px;
@@ -347,8 +347,8 @@ aside h3 {
   text-align: center;
 }
 
-/* Definicoes do painel main, onde estao as seccoes do Scrum (To do, Doing, Done)*/
-/* Definições gerais de ambos os main (home.html e task.html)*/
+/* Definições do painel main, onde estao as secções do Scrum (To do, Doing, Done) */
+/* Definições gerais de ambos os main (home.html e task.html) */
 main {
   width: calc(100% - 300px);
   padding-left: 30px;
@@ -359,7 +359,7 @@ main {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-/* Definições do main home.html*/
+/* Definições do main home.html */
 .titulo-main {
   flex: 1;
 }
@@ -371,7 +371,7 @@ main {
   padding-top: 40px;
   padding-bottom: 10px;
 }
-/* Definições gerais dos painéis To do, Doing e Done*/
+/* Definições gerais dos painéis To do, Doing e Done */
 .panel {
   flex: 1;
   height: 500px;
@@ -404,16 +404,16 @@ main {
 /* Tamanho da barra */
 .panel::-webkit-scrollbar,
 .text-task::-webkit-scrollbar {
-  width: 13px; /* largura da barra de rolagem */
+  width: 13px;
 }
 /* Cor da barra */
 .panel::-webkit-scrollbar-thumb,
 .text-task::-webkit-scrollbar-thumb {
-  background-color: var(--green2); /* cor do indicador de rolagem */
+  background-color: var(--green2);
   border-top-right-radius: 8px;
 }
 /* Distância à direita a que a barra fica da border, cor do trilho e arredondamento para fazer
-match ao arredondamento do painel (home.html) e da task description (task.html) */
+match ao arredondamento do painel (home.html) */
 .panel::-webkit-scrollbar-track,
 .text-task::-webkit-scrollbar-track {
   margin-right: 1px;
@@ -426,7 +426,7 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   height: calc(100% - 2px);
   padding-right: 1px;
 }
-/* Definições das tasks no home.html*/
+/* Definições das tasks no home.html */
 .task {
   position: relative;
   width: 190px;
@@ -441,7 +441,7 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 }
-/* Esconde o texto da description*/
+/* Esconde o texto da description */
 .post-it-text {
   max-height: 0;
   transition: all 0.5s ease;
@@ -483,12 +483,12 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   color: color-mix(in srgb, var(--white), var(--white) 95%);
 }
 /* Expansão de cada task para mostrar description e cruz de apagar */
-/* Dimensão da janela do post-it totalmente expandida*/
+/* Dimensão da janela do post-it totalmente expandida */
 .task:hover {
   height: 190px;
   transition: all 0.5s ease-in-out;
 }
-/* Faz o texto do post-it aparecer*/
+/* Faz o texto do post-it aparecer */
 .task:hover .post-it-text {
   max-height: 190px;
   transition: all 0.5s ease;
@@ -501,15 +501,14 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   background-color: color-mix(in srgb, var(--grey), white 25%);
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s ease;
-  /*opacity: 0.9;*/
 }
 /* Definições da cruz que apaga a task */
-/* Não mostra na mini-janela do post-it*/
+/* Não mostra na mini-janela do post-it */
 .task .apagarButton {
   opacity: 0;
   transition: all 0.5s ease-in-out;
 }
-/* Mostra na mini-janela do post-it*/
+/* Mostra na mini-janela do post-it */
 .task:hover .apagarButton {
   opacity: 1;
   transition: all 0.5s ease-in-out;
@@ -524,12 +523,12 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   cursor: pointer;
   transition: ease-on 0.01s;
 }
-/* Animacao do botão apagar */
+/* Animação do botão apagar */
 .apagarButton:hover {
   rotate: 360deg;
   transition: ease 0.01s;
 }
-/* Modal para confirmações - apagar tarefa no home.html, cancelar as alterações no task.html*/
+/* Modal para confirmações - apagar tarefa no home.html, cancelar as alterações no task.html */
 .modal {
   bottom: 0;
   height: 100%;
@@ -558,7 +557,7 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   pointer-events: all;
 }
 .modal button {
-  text-align: center; /* Center the button */
+  text-align: center;
   margin: 0 auto;
   width: 100px;
   height: 32px;
@@ -591,7 +590,7 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   }
 }
 
-/* Definições do main na task.html*/
+/* Definições do main na task.html */
 .main-task {
   width: auto;
   margin: auto;
@@ -736,7 +735,7 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   text-align: center;
 }
 
-/* Definições gerais de status e priority*/
+/* Definições gerais de status e priority */
 .status-and-priority {
   margin-left: 100px;
   margin-top: 90px;
@@ -792,7 +791,7 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   --button-shadow-color: #808080;
   transition: box-shadow 0.3s ease;
 }
-/* Definições dos botões de status*/
+/* Definições dos botões de status */
 .status-button {
   border-color: var(--black);
   color: var(--green3);
@@ -829,7 +828,7 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   background-color: color-mix(in srgb, var(--grey), white 25%);
   transition: background-color 0.3s ease;
 }
-/* Definições dos botões de status e priority quando selecionados*/
+/* Definições dos botões de status e priority quando selecionados */
 .status-button.selected, 
 .priority-button.selected {
   border-color: #97A7B0 !important;
@@ -846,7 +845,7 @@ match ao arredondamento do painel (home.html) e da task description (task.html) 
   background-color: color-mix(in srgb, var(--grey), white 30%) !important;
 }
 
-/* Definicoes do footer*/
+/* Definições do footer */
 footer {
   width: auto;
   padding-block: 20px;
