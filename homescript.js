@@ -215,16 +215,17 @@ function saveTasks() {
 function loadTasks() {
   const tasksArray = JSON.parse(localStorage.getItem('tasks'));
 
-  if (tasksArray) { // Check if tasksArray is not null
-    // Define an array to store all task arrays
-    const allTasks = tasksArray.reduce((acc, curr) => acc.concat(curr), []);// concatena todos os arrays de tarefas num unico array
+  if (tasksArray) { 
+      // Define an array to store all task arrays
+      // concatena todos os arrays de tarefas num unico array
       // a função reduce() executa uma função reducer (fornecida por você) para cada elemento do array, resultando num único valor de retorno. a função reducer é alimentada por quatro parâmetros:
       // Acumulador (acc) (valor inicial igual ao primeiro valor do array, ou valor do parâmetro initialValue);
       // Valor Atual (cur) (o valor do elemento atual);
       // Index Atual (idx) (o índice atual do elemento sendo processado no array);
       // Array (src) (o array original ao qual a função reduce() foi chamada).
       // O valor retornado da sua função reducer é atribuída ao acumulador. O acumulador, com seu valor atualizado, é repassado para cada iteração subsequente pelo array, que por fim, se tornará o valor resultante, único, final.
-    allTasks.forEach(task => {
+      const allTasks = tasksArray.reduce((acc, curr) => acc.concat(curr), []);
+      allTasks.forEach(task => {
       const taskElement = createTaskElement(task);
       const panel = document.getElementById(task.status);
       panel.appendChild(taskElement);
